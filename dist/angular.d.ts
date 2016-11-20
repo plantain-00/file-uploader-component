@@ -6,8 +6,8 @@ export declare class FileUploaderComponent {
     multiple?: boolean;
     locale?: string;
     localeObject: common.Locale;
-    ngOnInit(): void;
     onDrop: (e: DragEvent) => void;
     onPaste: (e: ClipboardEvent) => void;
     onFileUploaded: (e: Event) => void;
+    ngOnInit(): void;
 }

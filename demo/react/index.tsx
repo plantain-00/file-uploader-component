@@ -11,8 +11,7 @@ class Main extends React.Component<{}, {}> {
             <div style={{ margin: "10px", width: "800px" }}>
                 <FileUploader fileUploaded={this.fileUploaded}
                     accept="image/*"
-                    multiple={true}
-                    locale="zh-cn">
+                    multiple={true}>
                 </FileUploader>
             </div>
         );

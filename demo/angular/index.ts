@@ -16,8 +16,7 @@ import { Component } from "@angular/core";
     <div style="margin: 10px; width: 800px">
         <file-uploader (fileUploaded)="fileUploaded($event)"
             accept="image/*"
-            multiple="true"
-            locale="zh-cn">
+            multiple="true">
         </file-uploader>
     </div>
     `,

@@ -48,4 +48,48 @@ function getLocale(name) {
     return name;
 }
 exports.getLocale = getLocale;
+function onDrop(fileUploaded) {
+    return function (e) {
+        var files = e.dataTransfer.files;
+        if (files.length > 0) {
+            e.preventDefault();
+            for (var i = 0; i < files.length; i++) {
+                fileUploaded(files.item(i));
+            }
+        }
+    };
+}
+exports.onDrop = onDrop;
+function onPaste(fileUploaded) {
+    return function (e) {
+        var items = e.clipboardData.items;
+        if (items.length > 0) {
+            e.preventDefault();
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                if (item.kind === "file") {
+                    var file = item.getAsFile();
+                    if (file) {
+                        fileUploaded(file);
+                    }
+                }
+            }
+        }
+    };
+}
+exports.onPaste = onPaste;
+function onFileUploaded(fileUploaded) {
+    return function (e) {
+        var files = e.currentTarget.files;
+        if (files) {
+            e.preventDefault();
+            if (files.length > 0) {
+                for (var i = 0; i < files.length; i++) {
+                    fileUploaded(files.item(i));
+                }
+            }
+        }
+    };
+}
+exports.onFileUploaded = onFileUploaded;
 //# sourceMappingURL=common.js.map

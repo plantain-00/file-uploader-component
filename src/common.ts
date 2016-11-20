@@ -61,3 +61,47 @@ export function getLocale(name: string | undefined | Locale): Locale {
     }
     return name;
 }
+
+export function onDrop(fileUploaded: (file: File | Blob) => void) {
+    return (e: DragEvent) => {
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            e.preventDefault();
+            for (let i = 0; i < files.length; i++) {
+                fileUploaded(files.item(i));
+            }
+        }
+    };
+}
+
+export function onPaste(fileUploaded: (file: File | Blob) => void) {
+    return (e: ClipboardEvent) => {
+        const items = e.clipboardData.items;
+        if (items.length > 0) {
+            e.preventDefault();
+            for (let i = 0; i < items.length; i++) {
+                const item = items[i];
+                if (item.kind === "file") {
+                    const file = item.getAsFile();
+                    if (file) {
+                        fileUploaded(file);
+                    }
+                }
+            }
+        }
+    };
+}
+
+export function onFileUploaded(fileUploaded: (file: File | Blob) => void) {
+    return (e: Event) => {
+        const files = (e.currentTarget as HTMLInputElement).files;
+        if (files) {
+            e.preventDefault();
+            if (files.length > 0) {
+                for (let i = 0; i < files.length; i++) {
+                    fileUploaded(files.item(i));
+                }
+            }
+        }
+    };
+}

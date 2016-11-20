@@ -5,7 +5,7 @@ module.exports = {
     entry: {
         react: "./demo/react/index",
         angular: "./demo/angular/index",
-        // vue: "./demo/vue/index"
+        vue: "./demo/vue/index"
     },
     output: {
         path: path.join(__dirname, "demo"),

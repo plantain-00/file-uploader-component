@@ -35,3 +35,6 @@ export declare const locales: {
     [name: string]: Locale;
 };
 export declare function getLocale(name: string | undefined | Locale): Locale;
+export declare function onDrop(fileUploaded: (file: File | Blob) => void): (e: DragEvent) => void;
+export declare function onPaste(fileUploaded: (file: File | Blob) => void): (e: ClipboardEvent) => void;
+export declare function onFileUploaded(fileUploaded: (file: File | Blob) => void): (e: Event) => void;

@@ -5,41 +5,9 @@ var FileUploaderComponent = (function () {
     function FileUploaderComponent() {
         var _this = this;
         this.fileUploaded = new core_1.EventEmitter();
-        this.onDrop = function (e) {
-            var files = e.dataTransfer.files;
-            if (files.length > 0) {
-                e.preventDefault();
-                for (var i = 0; i < files.length; i++) {
-                    _this.fileUploaded.emit(files.item(i));
-                }
-            }
-        };
-        this.onPaste = function (e) {
-            var items = e.clipboardData.items;
-            if (items.length > 0) {
-                e.preventDefault();
-                for (var i = 0; i < items.length; i++) {
-                    var item = items[i];
-                    if (item.kind === "file") {
-                        var file = item.getAsFile();
-                        if (file) {
-                            _this.fileUploaded.emit(file);
-                        }
-                    }
-                }
-            }
-        };
-        this.onFileUploaded = function (e) {
-            var files = e.currentTarget.files;
-            if (files) {
-                e.preventDefault();
-                if (files.length > 0) {
-                    for (var i = 0; i < files.length; i++) {
-                        _this.fileUploaded.emit(files.item(i));
-                    }
-                }
-            }
-        };
+        this.onDrop = common.onDrop(function (file) { return _this.fileUploaded.emit(file); });
+        this.onPaste = common.onPaste(function (file) { return _this.fileUploaded.emit(file); });
+        this.onFileUploaded = common.onFileUploaded(function (file) { return _this.fileUploaded.emit(file); });
     }
     FileUploaderComponent.prototype.ngOnInit = function () {
         this.localeObject = common.getLocale(this.locale);

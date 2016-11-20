@@ -31,7 +31,7 @@ the source code of the demo: https://github.com/plantain-00/file-uploader-compon
 #### angular2 component demo
 
 ```js
-import { FileUploaderComponent } from "schema-based-json-editor/dist/angular";
+import { FileUploaderComponent } from "file-uploader-component/dist/angular";
 
 @NgModule({
     imports: [BrowserModule, FormsModule],
@@ -52,6 +52,25 @@ class MainModule { }
 the online demo: https://plantain-00.github.io/file-uploader-component/demo/angular/index.html
 
 the source code of the demo: https://github.com/plantain-00/file-uploader-component/tree/master/demo/angular
+
+#### vuejs component demo
+
+```js
+import "file-uploader-component/dist/vue";
+```
+
+```jsx
+<file-uploader @file-uploaded="fileUploaded(arguments[0])"
+    accept="image/*"
+    multiple="true"
+    locale="zh-cn">
+</file-uploader>
+```
+
+the online demo: https://plantain-00.github.io/file-uploader-component/demo/vue/index.html
+
+the source code of the demo: https://github.com/plantain-00/file-uploader-component/tree/master/demo/vue
+
 
 #### properties of the component
 

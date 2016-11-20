@@ -10,46 +10,14 @@ export type Props = {
 }
 
 export class FileUploader extends React.Component<Props, {}> {
-    onDrop = (e: React.DragEvent<HTMLElement>) => {
-        const files = e.dataTransfer.files;
-        if (files.length > 0) {
-            e.preventDefault();
-            for (let i = 0; i < files.length; i++) {
-                this.props.fileUploaded(files.item(i));
-            }
-        }
-    }
-    onPaste = (e: React.ClipboardEvent<HTMLElement>) => {
-        const items = e.clipboardData.items;
-        if (items.length > 0) {
-            e.preventDefault();
-            for (let i = 0; i < items.length; i++) {
-                const item = items[i];
-                if (item.kind === "file") {
-                    const file = item.getAsFile();
-                    if (file) {
-                        this.props.fileUploaded(file);
-                    }
-                }
-            }
-        }
-    }
-    onFileUploaded = (e: React.FormEvent<HTMLInputElement>) => {
-        const files = e.currentTarget.files;
-        if (files) {
-            e.preventDefault();
-            if (files.length > 0) {
-                for (let i = 0; i < files.length; i++) {
-                    this.props.fileUploaded(files.item(i));
-                }
-            }
-        }
-    }
+    onDrop = common.onDrop(this.props.fileUploaded);
+    onPaste = common.onPaste(this.props.fileUploaded);
+    onFileUploaded = common.onFileUploaded(this.props.fileUploaded);
     render() {
         const locale = common.getLocale(this.props.locale);
         return (
-            <div onDrop={this.onDrop}
-                onPaste={this.onPaste}
+            <div onDrop={(e: React.DragEvent<HTMLElement> | DragEvent) => { this.onDrop(e as DragEvent); } }
+                onPaste={(e: React.ClipboardEvent<HTMLElement> | ClipboardEvent) => { this.onPaste(e as ClipboardEvent); } }
                 contentEditable={true}>
                 <p style={common.containerStyle}>
                     {locale.dragAndDrop}
@@ -59,7 +27,7 @@ export class FileUploader extends React.Component<Props, {}> {
                         style={common.fileInputStyle}
                         multiple={this.props.multiple}
                         accept={this.props.accept}
-                        onChange={this.onFileUploaded} />
+                        onChange={(e: React.FormEvent<HTMLElement> | Event) => { this.onFileUploaded(e as Event); } } />
                 </p>
             </div>
         );
