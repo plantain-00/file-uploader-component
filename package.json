@@ -1,5 +1,5 @@
 {
-  "name": "file-uploader",
+  "name": "file-uploader-component",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/plantain-00/file-uploader.git"
+    "url": "git+https://github.com/plantain-00/file-uploader-component.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/plantain-00/file-uploader/issues"
+    "url": "https://github.com/plantain-00/file-uploader-component/issues"
   },
-  "homepage": "https://github.com/plantain-00/file-uploader#readme",
+  "homepage": "https://github.com/plantain-00/file-uploader-component#readme",
   "devDependencies": {
     "@angular/common": "^2.0.2",
     "@angular/compiler": "^2.0.2",

@@ -4,8 +4,8 @@ import * as common from "./common";
 
 export type Props = {
     fileUploaded: (file: File | Blob) => void;
-    accept: string;
-    multiple: boolean;
+    accept?: string;
+    multiple?: boolean;
     locale?: string;
 }
 

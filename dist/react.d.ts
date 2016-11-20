@@ -2,8 +2,8 @@
 import * as React from "react";
 export declare type Props = {
     fileUploaded: (file: File | Blob) => void;
-    accept: string;
-    multiple: boolean;
+    accept?: string;
+    multiple?: boolean;
     locale?: string;
 };
 export declare class FileUploader extends React.Component<Props, {}> {
