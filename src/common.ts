@@ -38,7 +38,7 @@ export type Locale = {
     dragAndDrop: string;
     selectFile: string;
     pasteFromClipboard: string;
-}
+};
 
 export const defaultLocale: Locale = {
     dragAndDrop: "Upload files by dragging & dropping,",
@@ -81,6 +81,7 @@ export function onPaste(fileUploaded: (file: File | Blob) => void) {
         const items = e.clipboardData.items;
         if (items.length > 0) {
             e.preventDefault();
+            /* tslint:disable:prefer-for-of */
             for (let i = 0; i < items.length; i++) {
                 const item = items[i];
                 if (item.kind === "file") {

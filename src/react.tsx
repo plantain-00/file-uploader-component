@@ -7,7 +7,7 @@ export type Props = {
     accept?: string;
     multiple?: boolean;
     locale?: string;
-}
+};
 
 export class FileUploader extends React.Component<Props, {}> {
     onDrop = common.onDrop(this.props.fileUploaded);

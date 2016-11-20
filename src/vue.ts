@@ -48,4 +48,4 @@ Vue.component("file-uploader", {
 export type This = {
     $emit: (event: string, args: File | Blob) => void;
     locale: common.Locale;
-}
+};
