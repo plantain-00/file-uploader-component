@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import { FileUploader } from "../../dist/react";
 
 class Main extends React.Component<{}, {}> {
-    fileUploaded(file: File) {
+    fileUploaded(file: File | Blob) {
         console.log(file);
     }
     render() {
