@@ -12,8 +12,9 @@ exports.containerStyle = {
     borderColor: "#ddd",
     borderStyle: "dashed",
     backgroundColor: "#fafafa",
+    boxSizing: "content-box",
 };
-exports.containerStyleString = "padding-top: 16px; padding-bottom: 16px; border-width: 1px; border-radius: 3px; height: 31px; line-height: 31px; font-size: 14px; text-align: center; border-color: #ddd; border-style: dashed; background-color: #fafafa;";
+exports.containerStyleString = "padding-top: 16px; padding-bottom: 16px; border-width: 1px; border-radius: 3px; height: 31px; line-height: 31px; font-size: 14px; text-align: center; border-color: #ddd; border-style: dashed; background-color: #fafafa; box-sizing: content-box;";
 exports.selectThemStyle = {
     color: "#4078c0",
     cursor: "pointer",
@@ -24,8 +25,9 @@ exports.fileInputStyle = {
     marginLeft: "-350px",
     cursor: "pointer",
     position: "absolute",
+    display: "inline",
 };
-exports.fileInputStyleString = "opacity: 0.0001; margin-left: -350px; cursor: pointer; position: absolute;";
+exports.fileInputStyleString = "opacity: 0.0001; margin-left: -350px; cursor: pointer; position: absolute; display: inline;";
 exports.defaultLocale = {
     dragAndDrop: "Upload files by dragging & dropping,",
     selectFile: "selecting them",

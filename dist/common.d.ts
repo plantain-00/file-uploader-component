@@ -11,6 +11,7 @@ export declare const containerStyle: {
     borderColor: string;
     borderStyle: string;
     backgroundColor: string;
+    boxSizing: string;
 };
 export declare const containerStyleString: string;
 export declare const selectThemStyle: {
@@ -23,6 +24,7 @@ export declare const fileInputStyle: {
     marginLeft: string;
     cursor: string;
     position: string;
+    display: string;
 };
 export declare const fileInputStyleString: string;
 export declare type Locale = {

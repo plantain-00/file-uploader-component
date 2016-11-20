@@ -12,9 +12,10 @@ export const containerStyle = {
     borderColor: "#ddd",
     borderStyle: "dashed",
     backgroundColor: "#fafafa",
+    boxSizing: "content-box",
 };
 
-export const containerStyleString = "padding-top: 16px; padding-bottom: 16px; border-width: 1px; border-radius: 3px; height: 31px; line-height: 31px; font-size: 14px; text-align: center; border-color: #ddd; border-style: dashed; background-color: #fafafa;";
+export const containerStyleString = "padding-top: 16px; padding-bottom: 16px; border-width: 1px; border-radius: 3px; height: 31px; line-height: 31px; font-size: 14px; text-align: center; border-color: #ddd; border-style: dashed; background-color: #fafafa; box-sizing: content-box;";
 
 export const selectThemStyle = {
     color: "#4078c0",
@@ -28,9 +29,10 @@ export const fileInputStyle = {
     marginLeft: "-350px",
     cursor: "pointer",
     position: "absolute",
+    display: "inline",
 };
 
-export const fileInputStyleString = "opacity: 0.0001; margin-left: -350px; cursor: pointer; position: absolute;";
+export const fileInputStyleString = "opacity: 0.0001; margin-left: -350px; cursor: pointer; position: absolute; display: inline;";
 
 export type Locale = {
     dragAndDrop: string;
