@@ -28,6 +28,31 @@ the online demo: https://plantain-00.github.io/file-uploader-component/demo/reac
 
 the source code of the demo: https://github.com/plantain-00/file-uploader-component/tree/master/demo/react
 
+#### angular2 component demo
+
+```js
+import { FileUploaderComponent } from "schema-based-json-editor/dist/angular";
+
+@NgModule({
+    imports: [BrowserModule, FormsModule],
+    declarations: [MainComponent, FileUploaderComponent],
+    bootstrap: [MainComponent],
+})
+class MainModule { }
+```
+
+```jsx
+<file-uploader (fileUploaded)="fileUploaded($event)"
+    accept="image/*"
+    multiple="true"
+    locale="zh-cn">
+</file-uploader>
+```
+
+the online demo: https://plantain-00.github.io/file-uploader-component/demo/angular/index.html
+
+the source code of the demo: https://github.com/plantain-00/file-uploader-component/tree/master/demo/angular
+
 #### properties of the component
 
 + fileUploaded: the function that is invoked when a file is uploaded

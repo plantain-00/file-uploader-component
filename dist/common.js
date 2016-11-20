@@ -13,16 +13,19 @@ exports.containerStyle = {
     borderStyle: "dashed",
     backgroundColor: "#fafafa",
 };
+exports.containerStyleString = "padding-top: 16px; padding-bottom: 16px; border-width: 1px; border-radius: 3px; height: 31px; line-height: 31px; font-size: 14px; text-align: center; border-color: #ddd; border-style: dashed; background-color: #fafafa;";
 exports.selectThemStyle = {
     color: "#4078c0",
     cursor: "pointer",
 };
+exports.selectThemStyleString = "color: #4078c0; cursor: pointer";
 exports.fileInputStyle = {
     opacity: 0.0001,
-    marginLeft: -350,
+    marginLeft: "-350px",
     cursor: "pointer",
     position: "absolute",
 };
+exports.fileInputStyleString = "opacity: 0.0001; margin-left: -350px; cursor: pointer; position: absolute;";
 exports.defaultLocale = {
     dragAndDrop: "Upload files by dragging & dropping,",
     selectFile: "selecting them",

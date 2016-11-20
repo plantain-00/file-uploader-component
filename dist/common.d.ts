@@ -12,16 +12,19 @@ export declare const containerStyle: {
     borderStyle: string;
     backgroundColor: string;
 };
+export declare const containerStyleString: string;
 export declare const selectThemStyle: {
     color: string;
     cursor: string;
 };
+export declare const selectThemStyleString: string;
 export declare const fileInputStyle: {
     opacity: number;
-    marginLeft: number;
+    marginLeft: string;
     cursor: string;
     position: string;
 };
+export declare const fileInputStyleString: string;
 export declare type Locale = {
     dragAndDrop: string;
     selectFile: string;

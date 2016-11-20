@@ -14,17 +14,23 @@ export const containerStyle = {
     backgroundColor: "#fafafa",
 };
 
+export const containerStyleString = "padding-top: 16px; padding-bottom: 16px; border-width: 1px; border-radius: 3px; height: 31px; line-height: 31px; font-size: 14px; text-align: center; border-color: #ddd; border-style: dashed; background-color: #fafafa;";
+
 export const selectThemStyle = {
     color: "#4078c0",
     cursor: "pointer",
 };
 
+export const selectThemStyleString = "color: #4078c0; cursor: pointer";
+
 export const fileInputStyle = {
     opacity: 0.0001,
-    marginLeft: -350,
+    marginLeft: "-350px",
     cursor: "pointer",
     position: "absolute",
 };
+
+export const fileInputStyleString = "opacity: 0.0001; margin-left: -350px; cursor: pointer; position: absolute;";
 
 export type Locale = {
     dragAndDrop: string;

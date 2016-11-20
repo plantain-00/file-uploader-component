@@ -7,7 +7,6 @@ export declare type Props = {
     locale?: string;
 };
 export declare class FileUploader extends React.Component<Props, {}> {
-    onDragOver: (e: React.DragEvent<HTMLElement>) => void;
     onDrop: (e: React.DragEvent<HTMLElement>) => void;
     onPaste: (e: React.ClipboardEvent<HTMLElement>) => void;
     onFileUploaded: (e: React.FormEvent<HTMLInputElement>) => void;

@@ -6,10 +6,6 @@ var FileUploader = (function (_super) {
     function FileUploader() {
         var _this = this;
         _super.apply(this, arguments);
-        this.onDragOver = function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        };
         this.onDrop = function (e) {
             var files = e.dataTransfer.files;
             if (files.length > 0) {
@@ -48,7 +44,7 @@ var FileUploader = (function (_super) {
     }
     FileUploader.prototype.render = function () {
         var locale = common.getLocale(this.props.locale);
-        return (React.createElement("div", {onDragOver: this.onDragOver, onDrop: this.onDrop, onPaste: this.onPaste, contentEditable: true}, 
+        return (React.createElement("div", {onDrop: this.onDrop, onPaste: this.onPaste, contentEditable: true}, 
             React.createElement("p", {style: common.containerStyle}, 
                 locale.dragAndDrop, 
                 React.createElement("span", {style: common.selectThemStyle}, locale.selectFile), 

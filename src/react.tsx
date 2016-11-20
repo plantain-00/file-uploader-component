@@ -10,10 +10,6 @@ export type Props = {
 }
 
 export class FileUploader extends React.Component<Props, {}> {
-    onDragOver = (e: React.DragEvent<HTMLElement>) => {
-        e.preventDefault();
-        e.stopPropagation();
-    }
     onDrop = (e: React.DragEvent<HTMLElement>) => {
         const files = e.dataTransfer.files;
         if (files.length > 0) {
@@ -52,8 +48,7 @@ export class FileUploader extends React.Component<Props, {}> {
     render() {
         const locale = common.getLocale(this.props.locale);
         return (
-            <div onDragOver={this.onDragOver}
-                onDrop={this.onDrop}
+            <div onDrop={this.onDrop}
                 onPaste={this.onPaste}
                 contentEditable={true}>
                 <p style={common.containerStyle}>
