@@ -4,20 +4,20 @@ import * as common from "./common";
 @Component({
     selector: "file-uploader",
     styles: [
-        `.container {${common.containerStyleString}}`,
-        `.file-input {${common.fileInputStyleString}}`,
-        `.select-them {${common.selectThemStyleString}}`,
+        `.file-uploader-container {${common.containerStyleString}}`,
+        `.file-uploader-file-input {${common.fileInputStyleString}}`,
+        `.file-uploader-select-them {${common.selectThemStyleString}}`,
     ],
     template: `
     <div (drop)="onDrop($event)"
         (paste)="onPaste($event)"
         contenteditable="true">
-        <p class="container">
+        <p class="file-uploader-container">
             {{localeObject.dragAndDrop}}
-            <span class="select-them">{{localeObject.selectFile}}</span>
+            <span class="file-uploader-select-them">{{localeObject.selectFile}}</span>
             {{localeObject.pasteFromClipboard}}
             <input type="file"
-                class="file-input"
+                class="file-uploader-file-input"
                 [multiple]="multiple"
                 [accept]="accept"
                 (change)="onFileUploaded($event)" />

@@ -28,11 +28,11 @@ var FileUploaderComponent = (function () {
         core_1.Component({
             selector: "file-uploader",
             styles: [
-                (".container {" + common.containerStyleString + "}"),
-                (".file-input {" + common.fileInputStyleString + "}"),
-                (".select-them {" + common.selectThemStyleString + "}"),
+                (".file-uploader-container {" + common.containerStyleString + "}"),
+                (".file-uploader-file-input {" + common.fileInputStyleString + "}"),
+                (".file-uploader-select-them {" + common.selectThemStyleString + "}"),
             ],
-            template: "\n    <div (drop)=\"onDrop($event)\"\n        (paste)=\"onPaste($event)\"\n        contenteditable=\"true\">\n        <p class=\"container\">\n            {{localeObject.dragAndDrop}}\n            <span class=\"select-them\">{{localeObject.selectFile}}</span>\n            {{localeObject.pasteFromClipboard}}\n            <input type=\"file\"\n                class=\"file-input\"\n                [multiple]=\"multiple\"\n                [accept]=\"accept\"\n                (change)=\"onFileUploaded($event)\" />\n        </p>\n    </div>\n    ",
+            template: "\n    <div (drop)=\"onDrop($event)\"\n        (paste)=\"onPaste($event)\"\n        contenteditable=\"true\">\n        <p class=\"file-uploader-container\">\n            {{localeObject.dragAndDrop}}\n            <span class=\"file-uploader-select-them\">{{localeObject.selectFile}}</span>\n            {{localeObject.pasteFromClipboard}}\n            <input type=\"file\"\n                class=\"file-uploader-file-input\"\n                [multiple]=\"multiple\"\n                [accept]=\"accept\"\n                (change)=\"onFileUploaded($event)\" />\n        </p>\n    </div>\n    ",
         })
     ], FileUploaderComponent);
     return FileUploaderComponent;
