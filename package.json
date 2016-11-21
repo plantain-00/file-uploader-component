@@ -6,8 +6,7 @@
   "scripts": {
     "build": "npm run tsc && tsc -p demo && webpack",
     "tsc": "tsc -p src",
-    "lint": "tslint \"src/**/*.tsx\" \"demo/**/*.tsx\" \"src/**/*.ts\" \"demo/**/*.ts\" \"spec/**/*.ts\"",
-    "test": ""
+    "lint": "tslint \"src/**/*.tsx\" \"demo/**/*.tsx\" \"src/**/*.ts\" \"demo/**/*.ts\" \"spec/**/*.ts\""
   },
   "repository": {
     "type": "git",
