@@ -67,6 +67,7 @@ function onPaste(fileUploaded) {
         var items = e.clipboardData.items;
         if (items.length > 0) {
             e.preventDefault();
+            /* tslint:disable:prefer-for-of */
             for (var i = 0; i < items.length; i++) {
                 var item = items[i];
                 if (item.kind === "file") {

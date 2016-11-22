@@ -9,7 +9,9 @@ import "../../dist/vue";
 new Vue({
     el: "#container",
     data() {
-        return {};
+        return {
+            locale: navigator.language ? navigator.language.toLowerCase() : undefined,
+        };
     },
     methods: {
         fileUploaded(file: File | Blob) {

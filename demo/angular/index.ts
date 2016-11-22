@@ -16,12 +16,14 @@ import { Component } from "@angular/core";
     <div style="margin: 10px; width: 800px">
         <file-uploader (fileUploaded)="fileUploaded($event)"
             accept="image/*"
-            multiple="true">
+            multiple="true"
+            [locale]="locale">
         </file-uploader>
     </div>
     `,
 })
 export class MainComponent {
+    locale = navigator.language ? navigator.language.toLowerCase() : undefined;
     fileUploaded(file: File | Blob) {
         console.log(file);
     }
