@@ -10,7 +10,7 @@ new Vue({
     el: "#container",
     data() {
         return {
-            locale: navigator.language ? navigator.language.toLowerCase() : undefined,
+            locale: navigator.language,
         };
     },
     methods: {

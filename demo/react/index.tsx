@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import { FileUploader } from "../../dist/react";
 
 class Main extends React.Component<{}, {}> {
-    locale = navigator.language ? navigator.language.toLowerCase() : undefined;
+    locale = navigator.language;
     fileUploaded(file: File | Blob) {
         console.log(file);
     }
