@@ -16,18 +16,10 @@
 </head>
 
 <body>
-	<div id="container">
-		<div style="margin: 10px; width: 800px">
-			<file-uploader @file-uploaded="fileUploaded(arguments[0])"
-				accept="image/*"
-				multiple="true"
-				:locale="locale">
-			</file-uploader>
-		</div>
-	</div>
+	<div id="container"></div>
 	<img src="../demo.png">
 	<p>tips: the file or blob object will be printed at console.</p>
-	<script src="../vue.bundle.js"></script>
+	<script src="../<%=demoReactBundleJs %>" crossOrigin="anonymous" integrity="<%=sri.demoReactBundleJs %>"></script>
 </body>
 
 </html>

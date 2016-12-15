@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		
+		input[type=file] {
+			display: block;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<div style="margin: 10px; width: 800px">
+			<file-uploader @file-uploaded="fileUploaded(arguments[0])"
+				accept="image/*"
+				multiple="true"
+				:locale="locale">
+			</file-uploader>
+		</div>
+	</div>
+	<img src="../demo.png">
+	<p>tips: the file or blob object will be printed at console.</p>
+	<script src="../<%=demoVueBundleJs %>" crossOrigin="anonymous" integrity="<%=sri.demoVueBundleJs %>"></script>
+</body>
+
+</html>
