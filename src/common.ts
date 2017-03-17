@@ -34,17 +34,13 @@ export const fileInputStyle = {
 
 export const fileInputStyleString = "opacity: 0.0001; margin-left: -350px; cursor: pointer; position: absolute; display: inline;";
 
-export type Locale = {
-    dragAndDrop: string;
-    selectFile: string;
-    pasteFromClipboard: string;
-};
-
-export const defaultLocale: Locale = {
+export const defaultLocale = {
     dragAndDrop: "Upload files by dragging & dropping,",
     selectFile: "selecting them",
     pasteFromClipboard: ", or pasting from the clipboard.",
 };
+
+export type Locale = typeof defaultLocale;
 
 export const locales: { [name: string]: Locale } = {
     "zh-cn": {
