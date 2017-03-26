@@ -28,7 +28,7 @@ the online demo: https://plantain-00.github.io/file-uploader-component/demo/reac
 
 the source code of the demo: https://github.com/plantain-00/file-uploader-component/tree/master/demo/react
 
-#### angular2 component demo
+#### angular component demo
 
 ```js
 import { FileUploaderComponent } from "file-uploader-component/dist/angular";
@@ -82,7 +82,7 @@ the source code of the demo: https://github.com/plantain-00/file-uploader-compon
 #### features
 
 + reactjs component
-+ angular2 component
++ angular component
 + vuejs component
 + drag file(s) and drop to the component
 + click to choose file(s)
