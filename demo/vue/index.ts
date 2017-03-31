@@ -3,7 +3,7 @@ import * as Vue from "vue";
 import "../../dist/vue";
 
 /* tslint:disable:only-arrow-functions */
-/* tslint:disable:no-unused-new */
+/* tslint:disable:no-unused-expression */
 /* tslint:disable:object-literal-shorthand */
 
 new Vue({
