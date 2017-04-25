@@ -1,13 +1,11 @@
 {
   "name": "file-uploader-component",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "A reactjs, angular and vuejs component of file uploader.",
   "main": "index.js",
   "scripts": {
-    "build": "npm run tsc && tsc -p demo && webpack",
-    "tsc": "tsc -p src",
-    "lint": "tslint \"src/**/*.tsx\" \"demo/**/*.tsx\" \"src/**/*.ts\" \"demo/**/*.ts\" \"spec/**/*.ts\"",
-    "rev": "rev-static"
+    "build": "tsc -p src && tsc -p demo && webpack && rev-static",
+    "lint": "tslint \"src/**/*.tsx\" \"demo/**/*.tsx\" \"src/**/*.ts\" \"demo/**/*.ts\" \"spec/**/*.ts\""
   },
   "repository": {
     "type": "git",

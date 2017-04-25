@@ -17,8 +17,7 @@ export class FileUploader extends React.Component<Props, {}> {
         const locale = common.getLocale(this.props.locale);
         return (
             <div onDrop={(e: React.DragEvent<HTMLElement> | DragEvent) => { this.onDrop(e as DragEvent); } }
-                onPaste={(e: React.ClipboardEvent<HTMLElement> | ClipboardEvent) => { this.onPaste(e as ClipboardEvent); } }
-                contentEditable={true}>
+                onPaste={(e: React.ClipboardEvent<HTMLElement> | ClipboardEvent) => { this.onPaste(e as ClipboardEvent); } }>
                 <p style={common.containerStyle}>
                     {locale.dragAndDrop}
                     <span style={common.selectThemStyle}>{locale.selectFile}</span>

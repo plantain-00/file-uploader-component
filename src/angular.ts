@@ -10,8 +10,7 @@ import * as common from "./common";
     ],
     template: `
     <div (drop)="onDrop($event)"
-        (paste)="onPaste($event)"
-        contenteditable="true">
+        (paste)="onPaste($event)">
         <p class="file-uploader-container">
             {{localeObject.dragAndDrop}}
             <span class="file-uploader-select-them">{{localeObject.selectFile}}</span>

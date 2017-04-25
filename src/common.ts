@@ -1,4 +1,5 @@
-import "tslib";
+import { __extends } from "tslib";
+(window as any).__extends = __extends;
 
 export const containerStyle = {
     paddingTop: "16px",
@@ -30,9 +31,10 @@ export const fileInputStyle = {
     cursor: "pointer",
     position: "absolute",
     display: "inline",
+    height: "30px",
 };
 
-export const fileInputStyleString = "opacity: 0.0001; margin-left: -350px; cursor: pointer; position: absolute; display: inline;";
+export const fileInputStyleString = "opacity: 0.0001; margin-left: -350px; cursor: pointer; position: absolute; display: inline; height: 30px";
 
 export const defaultLocale = {
     dragAndDrop: "Upload files by dragging & dropping,",
@@ -65,6 +67,7 @@ export function onDrop(fileUploaded: (file: File | Blob) => void) {
         const files = e.dataTransfer.files;
         if (files.length > 0) {
             e.preventDefault();
+            e.stopPropagation();
             for (let i = 0; i < files.length; i++) {
                 fileUploaded(files.item(i));
             }

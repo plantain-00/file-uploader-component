@@ -6,8 +6,7 @@ import Component from "vue-class-component";
     props: ["accept", "multiple", "locale"],
     template: `
         <div @drop="onDrop(arguments[0])"
-            @paste="onPaste(arguments[0])"
-            contenteditable="true">
+            @paste="onPaste(arguments[0])">
             <p :style="containerStyle">
                 {{localeObject.dragAndDrop}}
                 <span :style="selectThemStyle">{{localeObject.selectFile}}</span>

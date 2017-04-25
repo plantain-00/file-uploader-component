@@ -42,3 +42,4 @@ demo/**/*.js
 .vscode
 spec/**/*.js
 dist/
+demo/**/index.html
