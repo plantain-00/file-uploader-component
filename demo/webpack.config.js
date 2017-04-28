@@ -8,7 +8,7 @@ module.exports = {
         vue: "./demo/vue/index"
     },
     output: {
-        path: path.join(__dirname, "demo"),
+        path: __dirname,
         filename: "[name].bundle.js"
     },
     plugins: [
