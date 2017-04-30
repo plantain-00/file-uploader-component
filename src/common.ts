@@ -25,7 +25,7 @@ export const selectThemStyle = {
 
 export const selectThemStyleString = "color: #4078c0; cursor: pointer";
 
-export const fileInputStyle = {
+export const fileInputStyle: any = {
     opacity: 0.0001,
     marginLeft: "-350px",
     cursor: "pointer",
