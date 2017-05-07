@@ -43,7 +43,7 @@
     "jasmine": "2.6.0",
     "react": "15.5.4",
     "react-dom": "15.5.4",
-    "rev-static": "2.1.2",
+    "rev-static": "2.3.0",
     "rimraf": "2.6.1",
     "rxjs": "5.3.0",
     "tslint": "5.1.0",

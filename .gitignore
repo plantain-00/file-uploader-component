@@ -44,3 +44,4 @@ spec/**/*.js
 dist/
 demo/**/index.html
 !*.config.js
+demo/demo-*.png

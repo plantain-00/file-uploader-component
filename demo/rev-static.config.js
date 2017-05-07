@@ -5,7 +5,8 @@ module.exports = {
         "demo/vue.bundle.js",
         "demo/angular/index.ejs.html",
         "demo/react/index.ejs.html",
-        "demo/vue/index.ejs.html"
+        "demo/vue/index.ejs.html",
+        "demo/demo.png",
     ],
     outputFiles: [
         "demo/angular/index.html",
