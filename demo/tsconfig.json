@@ -3,7 +3,7 @@
         "target": "es5",
         "module": "commonjs",
         "noImplicitAny": true,
-        "sourceMap": true,
+        "sourceMap": false,
         "noUnusedLocals": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
@@ -11,6 +11,7 @@
         "skipLibCheck": true,
         "noEmitHelpers": true,
         "jsx": "react",
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "importHelpers": true
     }
 }
