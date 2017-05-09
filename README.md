@@ -55,6 +55,8 @@ the source code of the demo: https://github.com/plantain-00/file-uploader-compon
 
 #### vuejs component demo
 
+`npm i vue vue-class-component`
+
 ```js
 import "file-uploader-component/dist/vue";
 ```
