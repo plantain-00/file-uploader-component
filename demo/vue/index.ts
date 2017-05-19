@@ -1,21 +1,27 @@
 import * as Vue from "vue";
+import Component from "vue-class-component";
 
 import "../../dist/vue";
 
-/* tslint:disable:only-arrow-functions */
-/* tslint:disable:no-unused-expression */
-/* tslint:disable:object-literal-shorthand */
+@Component({
+    template: `
+    <div style="margin: 10px; width: 800px">
+        <file-uploader @file-uploaded="fileUploaded(arguments[0])"
+            accept="image/*"
+            multiple="true"
+            :locale="locale">
+        </file-uploader>
+    </div>
+    `,
+})
+class App extends Vue {
+    locale = navigator.language;
 
-new Vue({
-    el: "#container",
-    data() {
-        return {
-            locale: navigator.language,
-        };
-    },
-    methods: {
-        fileUploaded(file: File | Blob) {
-            console.log(file);
-        },
-    },
-});
+    fileUploaded(file: File | Blob) {
+        console.log(file);
+    }
+}
+
+/* tslint:disable:no-unused-expression */
+new App({ el: "#container" });
+/* tslint:enable:no-unused-expression */
