@@ -5,6 +5,7 @@ import { FileUploader } from "../../dist/react";
 class Main extends React.Component<{}, {}> {
     locale = navigator.language;
     fileUploaded(file: File | Blob) {
+        // tslint:disable-next-line:no-console
         console.log(file);
     }
     render() {

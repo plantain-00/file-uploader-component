@@ -80,7 +80,7 @@ export function onPaste(fileUploaded: (file: File | Blob) => void) {
         const items = e.clipboardData.items;
         if (items.length > 0) {
             e.preventDefault();
-            /* tslint:disable:prefer-for-of */
+            // tslint:disable-next-line:prefer-for-of
             for (let i = 0; i < items.length; i++) {
                 const item = items[i];
                 if (item.kind === "file") {

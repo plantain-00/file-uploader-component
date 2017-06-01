@@ -25,6 +25,7 @@ import { Component } from "@angular/core";
 export class MainComponent {
     locale = navigator.language;
     fileUploaded(file: File | Blob) {
+        // tslint:disable-next-line:no-console
         console.log(file);
     }
 }
