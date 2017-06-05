@@ -6,6 +6,15 @@
 
 # file-uploader-component
 
+#### features
+
++ reactjs component
++ angular component
++ vuejs component
++ drag file(s) and drop to the component
++ click to choose file(s)
++ paste file from clipboard
+
 #### install
 
 `npm i file-uploader-component`
@@ -25,8 +34,6 @@ import { JSONEditor } from "file-uploader-component/dist/react";
 ```
 
 the online demo: https://plantain-00.github.io/file-uploader-component/demo/react/index.html
-
-the source code of the demo: https://github.com/plantain-00/file-uploader-component/tree/master/demo/react
 
 #### angular component demo
 
@@ -51,8 +58,6 @@ class MainModule { }
 
 the online demo: https://plantain-00.github.io/file-uploader-component/demo/angular/index.html
 
-the source code of the demo: https://github.com/plantain-00/file-uploader-component/tree/master/demo/angular
-
 #### vuejs component demo
 
 `npm i vue vue-class-component`
@@ -71,21 +76,9 @@ import "file-uploader-component/dist/vue";
 
 the online demo: https://plantain-00.github.io/file-uploader-component/demo/vue/index.html
 
-the source code of the demo: https://github.com/plantain-00/file-uploader-component/tree/master/demo/vue
-
-
 #### properties of the component
 
 + fileUploaded: the function that is invoked when a file is uploaded
 + accept: optional, a string value
 + multiple: optional, a boolean value
 + locale: optional, support "zh-cn" for now
-
-#### features
-
-+ reactjs component
-+ angular component
-+ vuejs component
-+ drag file(s) and drop to the component
-+ click to choose file(s)
-+ paste file from clipboard

@@ -14,6 +14,7 @@ import { Component } from "@angular/core";
     selector: "app",
     template: `
     <div style="margin: 10px; width: 800px">
+        <a href="https://github.com/plantain-00/file-uploader-component/tree/master/demo/angular/index.ts" target="_blank">the source code of the demo</a>
         <file-uploader (fileUploaded)="fileUploaded($event)"
             accept="image/*"
             multiple="true"

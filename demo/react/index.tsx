@@ -11,6 +11,7 @@ class Main extends React.Component<{}, {}> {
     render() {
         return (
             <div style={{ margin: "10px", width: "800px" }}>
+                <a href="https://github.com/plantain-00/file-uploader-component/tree/master/demo/react/index.tsx" target="_blank">the source code of the demo</a>
                 <FileUploader fileUploaded={this.fileUploaded}
                     accept="image/*"
                     multiple={true}
