@@ -1,11 +1,8 @@
 module.exports = {
     inputFiles: [
-        "demo/angular.bundle.js",
-        "demo/react.bundle.js",
-        "demo/vue.bundle.js",
-        "demo/angular/index.ejs.html",
-        "demo/react/index.ejs.html",
-        "demo/vue/index.ejs.html",
+        "demo/*.bundle.js",
+        "demo/*.bundle.css",
+        "demo/**/index.ejs.html",
         "demo/demo.png",
     ],
     outputFiles: [

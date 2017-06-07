@@ -45,3 +45,4 @@ dist/
 demo/**/index.html
 !*.config.js
 demo/demo-*.png
+demo/**/*.css

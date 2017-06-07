@@ -4,10 +4,11 @@
   "description": "A reactjs, angular and vuejs component of file uploader.",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean && tsc -p src && tsc -p demo && webpack --config demo/webpack.config.js && npm run clean-rev && rev-static --config demo/rev-static.config.js",
+    "build": "npm run clean && tsc -p src && tsc -p demo && webpack --config demo/webpack.config.js && npm run clean-rev && npm run cleancss && rev-static --config demo/rev-static.config.js",
     "lint": "tslint \"src/**/*.tsx\" \"demo/**/*.tsx\" \"src/**/*.ts\" \"demo/**/*.ts\" \"spec/**/*.ts\"",
     "clean-rev": "rimraf demo/react.bundle-*.js demo/vue.bundle-*.js demo/angular.bundle-*.js",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "cleancss": "cleancss -o demo/index.bundle.css ./node_modules/github-fork-ribbon-css/gh-fork-ribbon.css"
   },
   "repository": {
     "type": "git",
@@ -39,7 +40,9 @@
     "@types/jasmine": "2.5.47",
     "@types/react": "15.0.25",
     "@types/react-dom": "15.5.0",
+    "clean-css": "4.1.3",
     "core-js": "2.4.1",
+    "github-fork-ribbon-css": "0.2.1",
     "jasmine": "2.6.0",
     "react": "15.5.4",
     "react-dom": "15.5.4",
