@@ -25,19 +25,47 @@ import * as common from "./common";
     `,
 })
 export class FileUploaderComponent {
-    @Output()
-    fileUploaded = new EventEmitter<File | Blob>();
     @Input()
     accept?: string;
     @Input()
     multiple?: boolean;
     @Input()
     locale?: string;
+    @Input()
+    name?: string;
+    @Input()
+    url?: string;
+    @Input()
+    method?: string;
+
+    @Output()
+    fileGot = new EventEmitter<File | Blob>();
+    @Output()
+    fileUploaded = new EventEmitter<any>();
 
     localeObject: common.Locale;
-    onDrop = common.onDrop(file => this.fileUploaded.emit(file));
-    onPaste = common.onPaste(file => this.fileUploaded.emit(file));
-    onFileUploaded = common.onFileUploaded(file => this.fileUploaded.emit(file));
+
+    onDrop(e: DragEvent) {
+        common.onDrop(e, this.name, this.url, this.method, file => {
+            this.fileGot.emit(file);
+        }, response => {
+            this.fileUploaded.emit(response);
+        });
+    }
+    onPaste(e: ClipboardEvent) {
+        common.onPaste(e, this.name, this.url, this.method, file => {
+            this.fileGot.emit(file);
+        }, response => {
+            this.fileUploaded.emit(response);
+        });
+    }
+    onFileUploaded(e: Event) {
+        common.onFileUploaded(e, this.name, this.url, this.method, file => {
+            this.fileGot.emit(file);
+        }, response => {
+            this.fileUploaded.emit(response);
+        });
+    }
 
     ngOnInit() {
         this.localeObject = common.getLocale(this.locale);

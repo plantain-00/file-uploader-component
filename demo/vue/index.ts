@@ -7,20 +7,44 @@ import "../../dist/vue";
     template: `
     <div style="margin: 10px; width: 800px">
         <a href="https://github.com/plantain-00/file-uploader-component/tree/master/demo/vue/index.ts" target="_blank">the source code of the demo</a>
-        <file-uploader @file-uploaded="fileUploaded(arguments[0])"
+        <h3>just get the file or blob object and print it at console</h3>
+        <file-uploader @file-got="fileGot($event)"
             accept="image/*"
             multiple="true"
             :locale="locale">
+        </file-uploader>
+        <h3>upload the file to server</h3>
+        name:
+        <input type="text" v-model="name"/>
+        url:
+        <input type="text" v-model="url"/>
+        method:
+        <input type="text" v-model="method"/>
+        <file-uploader @file-uploaded="fileUploaded($event)"
+            @file-got="fileGot($event)"
+            accept="image/*"
+            multiple="true"
+            :locale="locale"
+            :name="name"
+            :url="url"
+            :method="method">
         </file-uploader>
     </div>
     `,
 })
 class App extends Vue {
     locale = navigator.language;
+    name = "test";
+    url = "http://localhost:9997";
+    method = "POST";
 
-    fileUploaded(file: File | Blob) {
+    fileGot(file: File | Blob) {
         // tslint:disable-next-line:no-console
         console.log(file);
+    }
+    fileUploaded(response: any) {
+        // tslint:disable-next-line:no-console
+        console.log(response);
     }
 }
 

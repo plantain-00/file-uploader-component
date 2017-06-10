@@ -14,6 +14,7 @@
 + drag file(s) and drop to the component
 + click to choose file(s)
 + paste file from clipboard
++ just get the file object, or uploaded to server by `XMLHttpRequest`
 
 #### install
 
@@ -27,6 +28,7 @@ import { JSONEditor } from "file-uploader-component/dist/react";
 
 ```jsx
 <FileUploader fileUploaded={this.fileUploaded}
+    fileGot={this.fileGot}
     accept="image/*"
     multiple={true}
     locale="zh-cn">
@@ -50,6 +52,7 @@ class MainModule { }
 
 ```jsx
 <file-uploader (fileUploaded)="fileUploaded($event)"
+    (fileGot)="fileGot($event)"
     accept="image/*"
     multiple="true"
     locale="zh-cn">
@@ -67,7 +70,8 @@ import "file-uploader-component/dist/vue";
 ```
 
 ```jsx
-<file-uploader @file-uploaded="fileUploaded(arguments[0])"
+<file-uploader @file-uploaded="fileUploaded($event)"
+    @file-got="fileGot($event)"
     accept="image/*"
     multiple="true"
     locale="zh-cn">
@@ -76,9 +80,27 @@ import "file-uploader-component/dist/vue";
 
 the online demo: https://plantain-00.github.io/file-uploader-component/demo/vue/index.html
 
-#### properties of the component
+#### properties and events of the component
 
-+ fileUploaded: the function that is invoked when a file is uploaded
-+ accept: optional, a string value
-+ multiple: optional, a boolean value
-+ locale: optional, support "zh-cn" for now
+name | type | description
+--- | --- | ---
+accept | string? | the extension names in the file chosen dialog
+multiple | boolean? | whether multiple file can be selected
+locale | string? | support "zh-cn" for now
+name | string? | will be the key of the file in `FormData`
+url | string? | the upload API url
+method | string? | the upload API method
+fileUploaded | (response: any) => void | the event that is triggered when a file is uploaded
+fileGot | (file: File or Blob) => void | the event that is triggered when got the file object
+
+#### change logs
+
+```
+// v2
+fileUploaded: 
+// the event that is triggered when a file is uploaded to server
+
+// v1
+fileUploaded: (file: File or Blob) => void
+// the event that is triggered when got the file object
+```

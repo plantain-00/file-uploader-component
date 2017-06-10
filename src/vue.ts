@@ -3,10 +3,10 @@ import * as common from "./common";
 import Component from "vue-class-component";
 
 @Component({
-    props: ["accept", "multiple", "locale"],
+    props: ["accept", "multiple", "locale", "name", "url", "method"],
     template: `
-        <div @drop="onDrop(arguments[0])"
-            @paste="onPaste(arguments[0])">
+        <div @drop="onDrop($event)"
+            @paste="onPaste($event)">
             <p :style="containerStyle">
                 {{localeObject.dragAndDrop}}
                 <span :style="selectThemStyle">{{localeObject.selectFile}}</span>
@@ -15,7 +15,7 @@ import Component from "vue-class-component";
                     :style="fileInputStyle"
                     :multiple="multiple"
                     :accept="accept"
-                    @change="onFileUploaded(arguments[0])" />
+                    @change="onFileUploaded($event)" />
             </p>
         </div>
     `,
@@ -24,6 +24,9 @@ class FileUploader extends Vue {
     accept: string;
     multiple: boolean;
     locale: string;
+    name: string;
+    url: string;
+    method: string;
 
     localeObject = common.getLocale(this.locale);
     containerStyle = common.containerStyle;
@@ -31,13 +34,25 @@ class FileUploader extends Vue {
     fileInputStyle = common.fileInputStyle;
 
     onDrop(e: DragEvent) {
-        common.onDrop(file => this.$emit("file-uploaded", file))(e);
+        common.onDrop(e, this.name, this.url, this.method, file => {
+            this.$emit("file-got", file);
+        }, response => {
+            this.$emit("file-uploaded", response);
+        });
     }
     onPaste(e: ClipboardEvent) {
-        common.onPaste(file => this.$emit("file-uploaded", file))(e);
+        common.onPaste(e, this.name, this.url, this.method, file => {
+            this.$emit("file-got", file);
+        }, response => {
+            this.$emit("file-uploaded", response);
+        });
     }
     onFileUploaded(e: Event) {
-        common.onFileUploaded(file => this.$emit("file-uploaded", file))(e);
+        common.onFileUploaded(e, this.name, this.url, this.method, file => {
+            this.$emit("file-got", file);
+        }, response => {
+            this.$emit("file-uploaded", response);
+        });
     }
 }
 

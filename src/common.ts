@@ -62,48 +62,76 @@ export function getLocale(name: string | undefined | Locale): Locale {
     return name;
 }
 
-export function onDrop(fileUploaded: (file: File | Blob) => void) {
-    return (e: DragEvent) => {
-        const files = e.dataTransfer.files;
+function upload(name: string | undefined, url: string | undefined, method: string | undefined, file: File | Blob, fileGot: () => void, fileUploaded: (response: any) => void) {
+    fileGot();
+
+    if (name && url && method) {
+        const request = new XMLHttpRequest();
+        // request.upload.onprogress = e => {
+        //     console.log(e.loaded);
+        // };
+        request.onreadystatechange = () => {
+            if (request.readyState === 4) {
+                fileUploaded(request.response);
+            }
+        };
+        request.open(method, url);
+        const formData = new FormData();
+        formData.append(name, file);
+        request.send(formData);
+    }
+}
+
+export function onDrop(e: DragEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (response: any) => void) {
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+        e.preventDefault();
+        e.stopPropagation();
+        for (let i = 0; i < files.length; i++) {
+            const file = files.item(i);
+            upload(name, url, method, file, () => {
+                fileGot(file);
+            }, response => {
+                fileUploaded(response);
+            });
+        }
+    }
+}
+
+export function onPaste(e: ClipboardEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (response: any) => void) {
+    const items = e.clipboardData.items;
+    if (items.length > 0) {
+        e.preventDefault();
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < items.length; i++) {
+            const item = items[i];
+            if (item.kind === "file") {
+                const file = item.getAsFile();
+                if (file) {
+                    upload(name, url, method, file, () => {
+                        fileGot(file);
+                    }, response => {
+                        fileUploaded(response);
+                    });
+                }
+            }
+        }
+    }
+}
+
+export function onFileUploaded(e: Event, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (response: any) => void) {
+    const files = (e.currentTarget as HTMLInputElement).files;
+    if (files) {
+        e.preventDefault();
         if (files.length > 0) {
-            e.preventDefault();
-            e.stopPropagation();
             for (let i = 0; i < files.length; i++) {
-                fileUploaded(files.item(i));
+                const file = files.item(i);
+                upload(name, url, method, file, () => {
+                    fileGot(file);
+                }, response => {
+                    fileUploaded(response);
+                });
             }
         }
-    };
-}
-
-export function onPaste(fileUploaded: (file: File | Blob) => void) {
-    return (e: ClipboardEvent) => {
-        const items = e.clipboardData.items;
-        if (items.length > 0) {
-            e.preventDefault();
-            // tslint:disable-next-line:prefer-for-of
-            for (let i = 0; i < items.length; i++) {
-                const item = items[i];
-                if (item.kind === "file") {
-                    const file = item.getAsFile();
-                    if (file) {
-                        fileUploaded(file);
-                    }
-                }
-            }
-        }
-    };
-}
-
-export function onFileUploaded(fileUploaded: (file: File | Blob) => void) {
-    return (e: Event) => {
-        const files = (e.currentTarget as HTMLInputElement).files;
-        if (files) {
-            e.preventDefault();
-            if (files.length > 0) {
-                for (let i = 0; i < files.length; i++) {
-                    fileUploaded(files.item(i));
-                }
-            }
-        }
-    };
+    }
 }
