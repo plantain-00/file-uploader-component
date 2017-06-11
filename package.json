@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run clean && npm run file2variable && tsc -p src && tsc -p demo && lessc src/file-uploader.less > dist/file-uploader.css && webpack --config demo/webpack.config.js && npm run clean-rev && npm run cleancss && rev-static --config demo/rev-static.config.js",
     "lint": "tslint \"src/**/*.tsx\" \"demo/**/*.tsx\" \"src/**/*.ts\" \"demo/**/*.ts\" \"spec/**/*.ts\" && stylelint \"src/*.less\" --syntax less",
-    "clean-rev": "rimraf demo/react.bundle-*.js demo/vue.bundle-*.js demo/angular.bundle-*.js",
+    "clean-rev": "rimraf demo/react.bundle-*.js demo/vue.bundle-*.js demo/angular.bundle-*.js demo/index.bundle-*.css demo/demo-*.png",
     "clean": "rimraf dist",
     "cleancss": "cleancss -o dist/file-uploader.min.css dist/file-uploader.css && cleancss -o demo/index.bundle.css dist/file-uploader.min.css ./node_modules/github-fork-ribbon-css/gh-fork-ribbon.css",
     "file2variable": "file2variable-cli src/vue.template.html -o src/vue-variables.ts --html-minify && file2variable-cli src/angular.template.html -o src/angular-variables.ts --html-minify"
