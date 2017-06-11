@@ -5,15 +5,11 @@ module.exports = {
         "demo/**/index.ejs.html",
         "demo/demo.png",
     ],
-    outputFiles: [
-        "demo/angular/index.html",
-        "demo/react/index.html",
-        "demo/vue/index.html"
-    ],
+    outputFiles: file => file.replace(".ejs", ""),
     json: false,
     ejsOptions: {
         rmWhitespace: true
     },
     sha: 256,
-        customNewFileName: (filePath, fileString, md5String, baseName, extensionName) => baseName + "-" + md5String + extensionName,
+    customNewFileName: (filePath, fileString, md5String, baseName, extensionName) => baseName + "-" + md5String + extensionName,
 };
