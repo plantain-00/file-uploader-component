@@ -1,24 +1,11 @@
 import * as Vue from "vue";
 import * as common from "./common";
 import Component from "vue-class-component";
+import { srcVueTemplateHtml } from "./vue-variables";
 
 @Component({
     props: ["accept", "multiple", "locale", "name", "url", "method"],
-    template: `
-        <div @drop="onDrop($event)"
-            @paste="onPaste($event)">
-            <p :style="containerStyle">
-                {{localeObject.dragAndDrop}}
-                <span :style="selectThemStyle">{{localeObject.selectFile}}</span>
-                {{localeObject.pasteFromClipboard}}
-                <input type="file"
-                    :style="fileInputStyle"
-                    :multiple="multiple"
-                    :accept="accept"
-                    @change="onFileUploaded($event)" />
-            </p>
-        </div>
-    `,
+    template: srcVueTemplateHtml,
 })
 class FileUploader extends Vue {
     accept: string;
@@ -29,29 +16,49 @@ class FileUploader extends Vue {
     method: string;
 
     localeObject = common.getLocale(this.locale);
-    containerStyle = common.containerStyle;
-    selectThemStyle = common.selectThemStyle;
-    fileInputStyle = common.fileInputStyle;
+
+    requests: common.UploadRequest[] = [];
+
+    getProgressWidth(request: common.UploadRequest) {
+        return {
+            width: request.percent + "%",
+        };
+    }
 
     onDrop(e: DragEvent) {
         common.onDrop(e, this.name, this.url, this.method, file => {
             this.$emit("file-got", file);
-        }, response => {
-            this.$emit("file-uploaded", response);
+        }, request => {
+            this.$emit("file-uploaded", request.response);
+            common.removeRequest(this.requests, request);
+        }, percent => {
+            // nothing to do
+        }, request => {
+            this.requests.push(request);
         });
     }
     onPaste(e: ClipboardEvent) {
         common.onPaste(e, this.name, this.url, this.method, file => {
             this.$emit("file-got", file);
-        }, response => {
-            this.$emit("file-uploaded", response);
+        }, request => {
+            this.$emit("file-uploaded", request.response);
+            common.removeRequest(this.requests, request);
+        }, percent => {
+            // nothing to do
+        }, request => {
+            this.requests.push(request);
         });
     }
     onFileUploaded(e: Event) {
         common.onFileUploaded(e, this.name, this.url, this.method, file => {
             this.$emit("file-got", file);
-        }, response => {
-            this.$emit("file-uploaded", response);
+        }, request => {
+            this.$emit("file-uploaded", request.response);
+            common.removeRequest(this.requests, request);
+        }, percent => {
+            // nothing to do
+        }, request => {
+            this.requests.push(request);
         });
     }
 }

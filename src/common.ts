@@ -1,41 +1,6 @@
 import { __extends } from "tslib";
 (window as any).__extends = __extends;
 
-export const containerStyle = {
-    paddingTop: "16px",
-    paddingBottom: "16px",
-    borderWidth: "1px",
-    borderRadius: "3px",
-    height: "31px",
-    lineHeight: "31px",
-    fontSize: "14px",
-    textAlign: "center",
-    borderColor: "#ddd",
-    borderStyle: "dashed",
-    backgroundColor: "#fafafa",
-    boxSizing: "content-box",
-};
-
-export const containerStyleString = "padding-top: 16px; padding-bottom: 16px; border-width: 1px; border-radius: 3px; height: 31px; line-height: 31px; font-size: 14px; text-align: center; border-color: #ddd; border-style: dashed; background-color: #fafafa; box-sizing: content-box;";
-
-export const selectThemStyle = {
-    color: "#4078c0",
-    cursor: "pointer",
-};
-
-export const selectThemStyleString = "color: #4078c0; cursor: pointer";
-
-export const fileInputStyle: any = {
-    opacity: 0.0001,
-    marginLeft: "-350px",
-    cursor: "pointer",
-    position: "absolute",
-    display: "inline",
-    height: "30px",
-};
-
-export const fileInputStyleString = "opacity: 0.0001; margin-left: -350px; cursor: pointer; position: absolute; display: inline; height: 30px";
-
 export const defaultLocale = {
     dragAndDrop: "Upload files by dragging & dropping,",
     selectFile: "selecting them",
@@ -62,27 +27,35 @@ export function getLocale(name: string | undefined | Locale): Locale {
     return name;
 }
 
-function upload(name: string | undefined, url: string | undefined, method: string | undefined, file: File | Blob, fileGot: () => void, fileUploaded: (response: any) => void) {
+function upload(name: string | undefined, url: string | undefined, method: string | undefined, file: File | Blob, fileGot: () => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
     fileGot();
 
     if (name && url && method) {
         const request = new XMLHttpRequest();
-        // request.upload.onprogress = e => {
-        //     console.log(e.loaded);
-        // };
+        const uploadRequest: UploadRequest = {
+            request,
+            file,
+            percent: 0,
+        };
+        request.upload.onprogress = e => {
+            const percent = Math.round(100 * e.loaded / e.total);
+            progress(percent);
+            uploadRequest.percent = percent;
+        };
         request.onreadystatechange = () => {
-            if (request.readyState === 4) {
-                fileUploaded(request.response);
+            if (request.readyState === XMLHttpRequest.DONE) {
+                fileUploaded(request);
             }
         };
         request.open(method, url);
         const formData = new FormData();
         formData.append(name, file);
         request.send(formData);
+        requestCreated(uploadRequest);
     }
 }
 
-export function onDrop(e: DragEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (response: any) => void) {
+export function onDrop(e: DragEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
     const files = e.dataTransfer.files;
     if (files.length > 0) {
         e.preventDefault();
@@ -91,14 +64,18 @@ export function onDrop(e: DragEvent, name: string | undefined, url: string | und
             const file = files.item(i);
             upload(name, url, method, file, () => {
                 fileGot(file);
-            }, response => {
-                fileUploaded(response);
+            }, request => {
+                fileUploaded(request);
+            }, percent => {
+                progress(percent);
+            }, fileRequest => {
+                requestCreated(fileRequest);
             });
         }
     }
 }
 
-export function onPaste(e: ClipboardEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (response: any) => void) {
+export function onPaste(e: ClipboardEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
     const items = e.clipboardData.items;
     if (items.length > 0) {
         e.preventDefault();
@@ -110,8 +87,12 @@ export function onPaste(e: ClipboardEvent, name: string | undefined, url: string
                 if (file) {
                     upload(name, url, method, file, () => {
                         fileGot(file);
-                    }, response => {
-                        fileUploaded(response);
+                    }, request => {
+                        fileUploaded(request);
+                    }, percent => {
+                        progress(percent);
+                    }, fileRequest => {
+                        requestCreated(fileRequest);
                     });
                 }
             }
@@ -119,7 +100,7 @@ export function onPaste(e: ClipboardEvent, name: string | undefined, url: string
     }
 }
 
-export function onFileUploaded(e: Event, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (response: any) => void) {
+export function onFileUploaded(e: Event, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
     const files = (e.currentTarget as HTMLInputElement).files;
     if (files) {
         e.preventDefault();
@@ -128,10 +109,29 @@ export function onFileUploaded(e: Event, name: string | undefined, url: string |
                 const file = files.item(i);
                 upload(name, url, method, file, () => {
                     fileGot(file);
-                }, response => {
-                    fileUploaded(response);
+                }, request => {
+                    fileUploaded(request);
+                }, percent => {
+                    progress(percent);
+                }, fileRequest => {
+                    requestCreated(fileRequest);
                 });
             }
+        }
+    }
+}
+
+export type UploadRequest = {
+    percent: number;
+    file: File | Blob;
+    request: XMLHttpRequest;
+};
+
+export function removeRequest(requests: UploadRequest[], request: XMLHttpRequest) {
+    for (let i = 0; i < requests.length; i++) {
+        if (requests[i].request === request) {
+            requests.splice(i, 1);
+            break;
         }
     }
 }

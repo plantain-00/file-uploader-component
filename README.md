@@ -15,10 +15,17 @@
 + click to choose file(s)
 + paste file from clipboard
 + just get the file object, or uploaded to server by `XMLHttpRequest`
++ progress bar
 
 #### install
 
 `npm i file-uploader-component`
+
+#### link css
+
+```html
+<link rel="stylesheet" href="./node_modules/file-uploader-component/dist/file-uploader.min.css" />
+```
 
 #### reactjs component demo
 
@@ -94,6 +101,14 @@ fileUploaded | (response: any) => void | the event that is triggered when a file
 fileGot | (file: File or Blob) => void | the event that is triggered when got the file object
 
 #### change logs
+
+```
+// v3
+// link css
+
+// v2
+// no css file to link
+```
 
 ```
 // v2
