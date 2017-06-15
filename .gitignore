@@ -39,8 +39,8 @@ jspm_packages
 # Source
 .vscode
 dist
-demo/**/*.js
-demo/**/*.css
+**/*.js
+**/*.css
 !*.config.js
-!demo/*.bundle-*.js
-!demo/*.bundle-*.css
+!**/*-*.js
+!**/*-*.css
