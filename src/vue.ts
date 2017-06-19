@@ -1,4 +1,4 @@
-import * as Vue from "vue";
+import Vue from "vue";
 import * as common from "./common";
 import Component from "vue-class-component";
 import { srcVueTemplateHtml } from "./vue-variables";
