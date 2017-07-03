@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import * as common from "./common";
+export * from "./common";
 
 export type Props = {
     accept?: string;
