@@ -1,11 +1,11 @@
 import Vue from "vue";
 import * as common from "./common";
 import Component from "vue-class-component";
-import { srcVueTemplateHtml } from "./vue-variables";
+import { vueTemplateHtml } from "./vue-variables";
 
 @Component({
     props: ["accept", "multiple", "locale", "name", "url", "method"],
-    template: srcVueTemplateHtml,
+    template: vueTemplateHtml,
 })
 class FileUploader extends Vue {
     accept: string;
