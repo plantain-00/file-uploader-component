@@ -13,7 +13,7 @@ export class FileUploaderComponent {
     @Input()
     multiple?: boolean;
     @Input()
-    locale?: string;
+    locale?: common.Locale;
     @Input()
     name?: string;
     @Input()

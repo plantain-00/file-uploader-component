@@ -9,22 +9,8 @@ export const defaultLocale = {
 
 export type Locale = typeof defaultLocale;
 
-export const locales: { [name: string]: Locale } = {
-    "zh-cn": {
-        dragAndDrop: "通过拖放、",
-        selectFile: "选择",
-        pasteFromClipboard: "、或者从剪切板粘贴来上传文件。",
-    },
-};
-
-export function getLocale(name: string | undefined | Locale): Locale {
-    if (name === undefined) {
-        return defaultLocale;
-    }
-    if (typeof name === "string") {
-        return locales[name.toLowerCase()] || defaultLocale;
-    }
-    return name;
+export function getLocale(locale: null | undefined | Locale): Locale {
+    return locale || defaultLocale;
 }
 
 function upload(name: string | undefined, url: string | undefined, method: string | undefined, file: File | Blob, fileGot: () => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {

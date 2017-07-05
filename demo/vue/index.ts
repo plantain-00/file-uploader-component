@@ -2,6 +2,9 @@ import Vue from "vue";
 import Component from "vue-class-component";
 
 import "../../dist/vue";
+import { Locale } from "../../dist/vue";
+
+let locale: Locale | null = null;
 
 @Component({
     template: `
@@ -33,7 +36,7 @@ import "../../dist/vue";
     `,
 })
 class App extends Vue {
-    locale = navigator.language;
+    locale = locale;
     name = "test";
     url = "http://localhost:9997";
     method = "POST";
@@ -48,5 +51,18 @@ class App extends Vue {
     }
 }
 
-// tslint:disable-next-line:no-unused-expression
-new App({ el: "#container" });
+function start() {
+    // tslint:disable-next-line:no-unused-expression
+    new App({ el: "#container" });
+}
+
+if (navigator.language === "zh-CN") {
+    import ("../../dist/locales/" + navigator.language + ".js").then(module => {
+        locale = module.locale;
+        start();
+    }, error => {
+        start();
+    });
+} else {
+    start();
+}

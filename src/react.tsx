@@ -6,7 +6,7 @@ export * from "./common";
 export type Props = {
     accept?: string;
     multiple?: boolean;
-    locale?: string;
+    locale?: common.Locale | null
     name?: string;
     url?: string;
     method?: string;

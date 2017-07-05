@@ -10,6 +10,8 @@ enableProdMode();
 
 import { Component } from "@angular/core";
 
+let locale: Locale | null = null;
+
 @Component({
     selector: "app",
     template: `
@@ -41,7 +43,7 @@ import { Component } from "@angular/core";
     `,
 })
 export class MainComponent {
-    locale = navigator.language;
+    locale = locale;
     name = "test";
     url = "http://localhost:9997";
     method = "POST";
@@ -58,7 +60,7 @@ export class MainComponent {
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
-import { FileUploaderComponent } from "../../dist/angular";
+import { FileUploaderComponent, Locale } from "../../dist/angular";
 
 @NgModule({
     imports: [BrowserModule, FormsModule],
@@ -67,4 +69,17 @@ import { FileUploaderComponent } from "../../dist/angular";
 })
 class MainModule { }
 
-platformBrowserDynamic().bootstrapModule(MainModule);
+function start() {
+    platformBrowserDynamic().bootstrapModule(MainModule);
+}
+
+if (navigator.language === "zh-CN") {
+    import ("../../dist/locales/" + navigator.language + ".js").then(module => {
+        locale = module.locale;
+        start();
+    }, error => {
+        start();
+    });
+} else {
+    start();
+}

@@ -11,7 +11,7 @@ import { vueTemplateHtml } from "./vue-variables";
 class FileUploader extends Vue {
     accept: string;
     multiple: boolean;
-    locale: string;
+    locale: common.Locale | undefined;
     name: string;
     url: string;
     method: string;

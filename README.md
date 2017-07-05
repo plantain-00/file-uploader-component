@@ -16,6 +16,7 @@
 + paste file from clipboard
 + just get the file object, or uploaded to server by `XMLHttpRequest`
 + progress bar
++ multiple-language
 
 #### install
 
@@ -37,8 +38,7 @@ import { JSONEditor } from "file-uploader-component/dist/react";
 <FileUploader fileUploaded={this.fileUploaded}
     fileGot={this.fileGot}
     accept="image/*"
-    multiple={true}
-    locale="zh-cn">
+    multiple={true}>
 </FileUploader>
 ```
 
@@ -61,8 +61,7 @@ class MainModule { }
 <file-uploader (fileUploaded)="fileUploaded($event)"
     (fileGot)="fileGot($event)"
     accept="image/*"
-    multiple="true"
-    locale="zh-cn">
+    multiple="true">
 </file-uploader>
 ```
 
@@ -80,8 +79,7 @@ import "file-uploader-component/dist/vue";
 <file-uploader @file-uploaded="fileUploaded($event)"
     @file-got="fileGot($event)"
     accept="image/*"
-    multiple="true"
-    locale="zh-cn">
+    multiple="true">
 </file-uploader>
 ```
 
@@ -93,7 +91,7 @@ name | type | description
 --- | --- | ---
 accept | string? | the extension names in the file chosen dialog
 multiple | boolean? | whether multiple file can be selected
-locale | string? | support "zh-cn" for now
+locale | Locale? | the locale object
 name | string? | will be the key of the file in `FormData`
 url | string? | the upload API url
 method | string? | the upload API method
@@ -101,6 +99,14 @@ fileUploaded | (response: any) => void | the event that is triggered when a file
 fileGot | (file: File or Blob) => void | the event that is triggered when got the file object
 
 #### change logs
+
+```bash
+// v4
+locale is an object that can be imported dynamicly
+
+// v3
+locale is a string
+```
 
 ```
 // v3
