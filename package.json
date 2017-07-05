@@ -67,7 +67,7 @@
     "typescript": "2.4.1",
     "vue": "2.3.4",
     "vue-class-component": "5.0.2",
-    "webpack": "3.0.0",
+    "webpack": "2.6.1",
     "zone.js": "0.8.12"
   },
   "dependencies": {
