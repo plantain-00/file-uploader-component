@@ -29,7 +29,7 @@ module.exports = [
     entry: './demo/vue/index',
     output: {
       path: path.resolve(__dirname, 'vue'),
-      filename: 'index.bundle.js'
+      filename: 'index.bundle-[hash].js'
     },
     plugins,
     resolve
@@ -38,7 +38,7 @@ module.exports = [
     entry: './demo/react/index',
     output: {
       path: path.resolve(__dirname, 'react'),
-      filename: 'index.bundle.js'
+      filename: 'index.bundle-[hash].js'
     },
     plugins,
     resolve
@@ -47,7 +47,7 @@ module.exports = [
     entry: './demo/angular/index',
     output: {
       path: path.resolve(__dirname, 'angular'),
-      filename: 'index.bundle.js'
+      filename: 'index.bundle-[hash].js'
     },
     plugins,
     resolve
