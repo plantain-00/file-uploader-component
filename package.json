@@ -1,6 +1,6 @@
 {
   "name": "file-uploader-component",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A reactjs, angular and vuejs component of file uploader.",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,8 @@
     "file2variable": "file2variable-cli src/vue.template.html -o src/vue-variables.ts --html-minify --base src && file2variable-cli src/angular.template.html -o src/angular-variables.ts --html-minify --base src",
     "standard": "standard **/*.config.js",
     "fix": "standard --fix **/*.config.js",
-    "test": "tsc -p spec && karma start spec/karma.config.js"
+    "test": "tsc -p spec && karma start spec/karma.config.js",
+    "release": "clean-release"
   },
   "repository": {
     "type": "git",
@@ -45,6 +46,7 @@
     "@types/react": "15.0.34",
     "@types/react-dom": "15.5.1",
     "clean-css-cli": "4.1.6",
+    "clean-release": "1.0.3",
     "core-js": "2.4.1",
     "file2variable-cli": "1.4.0",
     "github-fork-ribbon-css": "0.2.1",
