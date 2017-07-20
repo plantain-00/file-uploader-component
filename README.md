@@ -25,13 +25,13 @@
 #### link css
 
 ```html
-<link rel="stylesheet" href="./node_modules/file-uploader-component/dist/file-uploader.min.css" />
+<link rel="stylesheet" href="./node_modules/file-uploader-component/file-uploader.min.css" />
 ```
 
 #### reactjs component demo
 
 ```js
-import { JSONEditor } from "file-uploader-component/dist/react";
+import { JSONEditor } from "file-uploader-component/react";
 ```
 
 ```jsx
@@ -47,7 +47,7 @@ the online demo: https://plantain-00.github.io/file-uploader-component/demo/reac
 #### angular component demo
 
 ```js
-import { FileUploaderComponent } from "file-uploader-component/dist/angular";
+import { FileUploaderComponent } from "file-uploader-component/angular";
 
 @NgModule({
     imports: [BrowserModule, FormsModule],
@@ -72,7 +72,7 @@ the online demo: https://plantain-00.github.io/file-uploader-component/demo/angu
 `npm i vue vue-class-component`
 
 ```js
-import "file-uploader-component/dist/vue";
+import "file-uploader-component/vue";
 ```
 
 ```jsx
@@ -99,6 +99,14 @@ fileUploaded | (response: any) => void | the event that is triggered when a file
 fileGot | (file: File or Blob) => void | the event that is triggered when got the file object
 
 #### change logs
+
+```bash
+// v5
+import "file-uploader-component/vue";
+
+// v4
+import "file-uploader-component/dist/vue";
+```
 
 ```bash
 // v4
