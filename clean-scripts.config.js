@@ -1,6 +1,6 @@
 module.exports = {
   build: [
-    `rimraf demo/**/index.bundle-*.js demo/index.bundle-*.css demo/demo-*.png`,
+    `rimraf demo/**/index.bundle-*.js demo/index.bundle-*.css demo/demo-*.png demo/**/*.index.bundle-*.js`,
     `rimraf dist`,
     `file2variable-cli src/vue.template.html -o src/vue-variables.ts --html-minify --base src`,
     `file2variable-cli src/angular.template.html -o src/angular-variables.ts --html-minify --base src`,
