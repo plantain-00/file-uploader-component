@@ -7,7 +7,7 @@ module.exports = {
     `tsc -p src`,
     `tsc -p demo`,
     `lessc src/file-uploader.less > dist/file-uploader.css`,
-    `webpack --config demo/webpack.config.js`,
+    `webpack --display-modules --config demo/webpack.config.js`,
     `cleancss -o dist/file-uploader.min.css dist/file-uploader.css`,
     `cleancss -o demo/index.bundle.css dist/file-uploader.min.css ./node_modules/github-fork-ribbon-css/gh-fork-ribbon.css`,
     `rev-static --config demo/rev-static.config.js`
