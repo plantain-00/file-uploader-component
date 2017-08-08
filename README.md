@@ -48,11 +48,11 @@ the online demo: https://plantain-00.github.io/file-uploader-component/demo/reac
 #### angular component demo
 
 ```js
-import { FileUploaderComponent } from "file-uploader-component/angular";
+import { FileUploaderModule } from "file-uploader-component/angular";
 
 @NgModule({
-    imports: [BrowserModule, FormsModule],
-    declarations: [MainComponent, FileUploaderComponent],
+    imports: [BrowserModule, FormsModule, FileUploaderModule],
+    declarations: [MainComponent],
     bootstrap: [MainComponent],
 })
 class MainModule { }

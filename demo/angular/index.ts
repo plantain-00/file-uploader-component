@@ -60,11 +60,11 @@ export class MainComponent {
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
-import { FileUploaderComponent, Locale } from "../../dist/angular";
+import { FileUploaderModule, Locale } from "../../dist/angular";
 
 @NgModule({
-    imports: [BrowserModule, FormsModule],
-    declarations: [MainComponent, FileUploaderComponent],
+    imports: [BrowserModule, FormsModule, FileUploaderModule],
+    declarations: [MainComponent],
     bootstrap: [MainComponent],
 })
 class MainModule { }
