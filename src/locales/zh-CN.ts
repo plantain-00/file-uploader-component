@@ -1,5 +1,8 @@
 import { Locale } from "../common";
 
+/**
+ * @public
+ */
 export const locale: Locale = {
     dragAndDrop: "通过拖放、",
     selectFile: "选择",

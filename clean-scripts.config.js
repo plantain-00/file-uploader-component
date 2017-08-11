@@ -20,9 +20,10 @@ module.exports = {
     `rev-static --config demo/rev-static.config.js`
   ],
   lint: {
-    ts: `tslint "src/**/*.tsx" "demo/**/*.tsx" "src/**/*.ts" "demo/**/*.ts" "spec/**/*.ts"`,
+    ts: `tslint "src/**/*.ts" "src/**/*.tsx" "spec/**/*.ts" "demo/**/*.ts" "demo/**/*.tsx"`,
     js: `standard "**/*.config.js"`,
-    less: `stylelint "src/*.less"`
+    less: `stylelint "src/*.less"`,
+    export: `no-unused-export "src/**/*.ts" "src/**/*.tsx" "spec/**/*.ts" "demo/**/*.ts" "demo/**/*.tsx" --exclude "src/compiled/**/*"`
   },
   test: [
     'tsc -p spec',
@@ -33,5 +34,6 @@ module.exports = {
     js: `standard --fix "**/*.config.js"`,
     less: `stylelint --fix "src/*.less"`
   },
-  release: `clean-release`
+  release: `clean-release`,
+  watch: `watch-then-execute "src/**/*.tsx" "demo/**/*.tsx" "src/**/*.ts" "demo/**/*.ts" "spec/**/*.ts" "src/**/*.template.html" --exclude "src/compiled/**/*,src/*-variables.ts" --script "npm run build"`
 }

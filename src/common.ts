@@ -1,6 +1,9 @@
 import { __extends } from "tslib";
 (window as any).__extends = __extends;
 
+/**
+ * @public
+ */
 export const defaultLocale = {
     dragAndDrop: "Upload files by dragging & dropping,",
     selectFile: "selecting them",

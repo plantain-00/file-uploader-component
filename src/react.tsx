@@ -3,6 +3,9 @@ import * as React from "react";
 import * as common from "./common";
 export * from "./common";
 
+/**
+ * @public
+ */
 export type Props = {
     accept?: string;
     multiple?: boolean;
@@ -14,6 +17,9 @@ export type Props = {
     fileUploaded?: (response: any) => void;
 };
 
+/**
+ * @public
+ */
 export class FileUploader extends React.Component<Props, {}> {
     requests: common.UploadRequest[] = [];
 

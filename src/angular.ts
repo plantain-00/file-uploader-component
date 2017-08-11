@@ -4,6 +4,9 @@ import * as common from "./common";
 export * from "./common";
 import { angularTemplateHtml } from "./angular-variables";
 
+/**
+ * @public
+ */
 @Component({
     selector: "file-uploader",
     template: angularTemplateHtml,
@@ -73,6 +76,9 @@ export class FileUploaderComponent {
     }
 }
 
+/**
+ * @public
+ */
 @NgModule({
     declarations: [
         FileUploaderComponent,
