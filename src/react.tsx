@@ -23,7 +23,7 @@ export type Props = {
 export class FileUploader extends React.Component<Props, {}> {
     private requests: common.UploadRequest[] = [];
 
-    public render() {
+    render() {
         const locale = common.getLocale(this.props.locale);
         const progress = this.requests.map(request => (
             <div className="file-uploader-progress" title={(request.file as File).name}>

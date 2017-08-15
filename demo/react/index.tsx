@@ -10,7 +10,7 @@ class Main extends React.Component<{}, {}> {
     private url = "http://localhost:9997";
     private method = "POST";
 
-    public render() {
+    render() {
         return (
             <div style={{ margin: "10px", width: "800px" }}>
                 <a href="https://github.com/plantain-00/file-uploader-component/tree/master/demo/react/index.tsx" target="_blank">the source code of the demo</a>
