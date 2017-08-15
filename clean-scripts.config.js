@@ -15,7 +15,8 @@ module.exports = {
         `cleancss -o dist/file-uploader.min.css dist/file-uploader.css`,
         `cleancss -o demo/index.bundle.css dist/file-uploader.min.css ./node_modules/github-fork-ribbon-css/gh-fork-ribbon.css`
       ],
-      clean: `rimraf demo/**/index.bundle-*.js demo/index.bundle-*.css demo/demo-*.png demo/**/*.index.bundle-*.js`
+      clean: `rimraf demo/**/index.bundle-*.js demo/index.bundle-*.css demo/demo-*.png demo/**/*.index.bundle-*.js`,
+      cpy: `cpy src/lib.d.ts dist`
     },
     `rev-static --config demo/rev-static.config.js`
   ],

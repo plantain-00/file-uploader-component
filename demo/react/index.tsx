@@ -5,19 +5,12 @@ import { FileUploader, Locale } from "../../dist/react";
 let locale: Locale | null = null;
 
 class Main extends React.Component<{}, {}> {
-    locale = locale;
-    name = "test";
-    url = "http://localhost:9997";
-    method = "POST";
-    fileGot(response: any) {
-        // tslint:disable-next-line:no-console
-        console.log(response);
-    }
-    fileUploaded(file: File | Blob) {
-        // tslint:disable-next-line:no-console
-        console.log(file);
-    }
-    render() {
+    private locale = locale;
+    private name = "test";
+    private url = "http://localhost:9997";
+    private method = "POST";
+
+    public render() {
         return (
             <div style={{ margin: "10px", width: "800px" }}>
                 <a href="https://github.com/plantain-00/file-uploader-component/tree/master/demo/react/index.tsx" target="_blank">the source code of the demo</a>
@@ -45,6 +38,15 @@ class Main extends React.Component<{}, {}> {
                 </FileUploader>
             </div>
         );
+    }
+
+    private fileGot(response: any) {
+        // tslint:disable-next-line:no-console
+        console.log(response);
+    }
+    private fileUploaded(file: File | Blob) {
+        // tslint:disable-next-line:no-console
+        console.log(file);
     }
 }
 

@@ -21,60 +21,9 @@ export type Props = {
  * @public
  */
 export class FileUploader extends React.Component<Props, {}> {
-    requests: common.UploadRequest[] = [];
+    private requests: common.UploadRequest[] = [];
 
-    onDrop(e: DragEvent) {
-        common.onDrop(e, this.props.name, this.props.url, this.props.method, file => {
-            if (this.props.fileGot) {
-                this.props.fileGot(file);
-            }
-        }, request => {
-            if (this.props.fileUploaded) {
-                this.props.fileUploaded(request.response);
-            }
-            common.removeRequest(this.requests, request);
-            this.setState({ requests: this.requests });
-        }, percent => {
-            this.setState({ requests: this.requests });
-        }, request => {
-            this.requests.push(request);
-        });
-    }
-    onPaste(e: ClipboardEvent) {
-        common.onPaste(e, this.props.name, this.props.url, this.props.method, file => {
-            if (this.props.fileGot) {
-                this.props.fileGot(file);
-            }
-        }, request => {
-            if (this.props.fileUploaded) {
-                this.props.fileUploaded(request.response);
-            }
-            common.removeRequest(this.requests, request);
-            this.setState({ requests: this.requests });
-        }, percent => {
-            this.setState({ requests: this.requests });
-        }, request => {
-            this.requests.push(request);
-        });
-    }
-    onFileUploaded(e: Event) {
-        common.onFileUploaded(e, this.props.name, this.props.url, this.props.method, file => {
-            if (this.props.fileGot) {
-                this.props.fileGot(file);
-            }
-        }, request => {
-            if (this.props.fileUploaded) {
-                this.props.fileUploaded(request.response);
-            }
-            common.removeRequest(this.requests, request);
-            this.setState({ requests: this.requests });
-        }, percent => {
-            this.setState({ requests: this.requests });
-        }, request => {
-            this.requests.push(request);
-        });
-    }
-    render() {
+    public render() {
         const locale = common.getLocale(this.props.locale);
         const progress = this.requests.map(request => (
             <div className="file-uploader-progress" title={(request.file as File).name}>
@@ -96,5 +45,57 @@ export class FileUploader extends React.Component<Props, {}> {
                 </p>
             </div>
         );
+    }
+
+    private onDrop(e: DragEvent) {
+        common.onDrop(e, this.props.name, this.props.url, this.props.method, file => {
+            if (this.props.fileGot) {
+                this.props.fileGot(file);
+            }
+        }, request => {
+            if (this.props.fileUploaded) {
+                this.props.fileUploaded(request.response);
+            }
+            common.removeRequest(this.requests, request);
+            this.setState({ requests: this.requests });
+        }, percent => {
+            this.setState({ requests: this.requests });
+        }, request => {
+            this.requests.push(request);
+        });
+    }
+    private onPaste(e: ClipboardEvent) {
+        common.onPaste(e, this.props.name, this.props.url, this.props.method, file => {
+            if (this.props.fileGot) {
+                this.props.fileGot(file);
+            }
+        }, request => {
+            if (this.props.fileUploaded) {
+                this.props.fileUploaded(request.response);
+            }
+            common.removeRequest(this.requests, request);
+            this.setState({ requests: this.requests });
+        }, percent => {
+            this.setState({ requests: this.requests });
+        }, request => {
+            this.requests.push(request);
+        });
+    }
+    private onFileUploaded(e: Event) {
+        common.onFileUploaded(e, this.props.name, this.props.url, this.props.method, file => {
+            if (this.props.fileGot) {
+                this.props.fileGot(file);
+            }
+        }, request => {
+            if (this.props.fileUploaded) {
+                this.props.fileUploaded(request.response);
+            }
+            common.removeRequest(this.requests, request);
+            this.setState({ requests: this.requests });
+        }, percent => {
+            this.setState({ requests: this.requests });
+        }, request => {
+            this.requests.push(request);
+        });
     }
 }
