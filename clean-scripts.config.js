@@ -39,16 +39,6 @@ module.exports = {
           reject(error)
         } else {
           if (stdout) {
-            const lines = stdout.split('\n')
-            const fs = require('fs')
-            for (const line of lines) {
-              if (line.startsWith(' M') || line.startsWith('M ') || line.startsWith('??')) {
-                const filepath = line.substring(3)
-                const content = fs.readFileSync(filepath, 'utf8')
-                console.log(`${filepath} ${content.length}`)
-                console.log(content.substring(0, 3000))
-              }
-            }
             reject(new Error(`generated files doesn't match.`))
           } else {
             resolve()
