@@ -43,5 +43,6 @@ dist
 **/*.css
 !*.config.js
 !**/*-*.js
+!**/*.index.bundle.js
 !**/*-*.css
 src/compiled
