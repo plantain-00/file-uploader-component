@@ -1,6 +1,6 @@
 {
   "name": "file-uploader-component",
-  "version": "5.1.0",
+  "version": "5.1.1",
   "description": "A reactjs, angular and vuejs component of file uploader.",
   "main": "index.js",
   "scripts": {
@@ -51,6 +51,7 @@
     "github-fork-ribbon-css": "0.2.1",
     "http-server": "0.10.0",
     "jasmine": "2.7.0",
+    "js-beautify": "1.6.14",
     "karma": "1.7.0",
     "karma-chrome-launcher": "2.2.0",
     "karma-firefox-launcher": "1.0.1",
