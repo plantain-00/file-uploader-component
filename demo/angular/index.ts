@@ -4,11 +4,9 @@ import "zone.js/dist/zone";
 import "tslib";
 
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
-import { enableProdMode } from "@angular/core";
+import { enableProdMode, Component, NgModule } from "@angular/core";
 
 enableProdMode();
-
-import { Component } from "@angular/core";
 
 let locale: Locale | null = null;
 
@@ -57,7 +55,6 @@ class MainComponent {
     }
 }
 
-import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import { FileUploaderModule, Locale } from "../../dist/angular";
