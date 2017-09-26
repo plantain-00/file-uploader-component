@@ -45,4 +45,5 @@ dist
 !**/*-*.js
 !**/*.index.bundle.js
 !**/*-*.css
+src/file-uploader.css
 src/compiled
