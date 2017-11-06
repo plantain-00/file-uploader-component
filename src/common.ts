@@ -1,5 +1,5 @@
 import { __extends } from "tslib";
-window.__extends = __extends;
+(window as any).__extends = __extends;
 
 /**
  * @public

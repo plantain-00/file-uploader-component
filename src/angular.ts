@@ -74,6 +74,9 @@ export class FileUploaderComponent {
     ngOnInit() {
         this.localeObject = common.getLocale(this.locale);
     }
+    trackBy(request: common.UploadRequest, index: number) {
+        return index;
+    }
 }
 
 /**

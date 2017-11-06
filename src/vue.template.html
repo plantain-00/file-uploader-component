@@ -1,6 +1,6 @@
 <div @drop="onDrop($event)"
     @paste="onPaste($event)">
-    <div v-for="request in requests" class="file-uploader-progress" :title="request.file.name">
+    <div v-for="(request, i) in requests" :key="i" class="file-uploader-progress" :title="request.file.name">
         <div :style="getProgressWidth(request)">{{request.percent}}%</div>
     </div>
     <p class="file-uploader-container">

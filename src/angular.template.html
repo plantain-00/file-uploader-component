@@ -1,6 +1,6 @@
 <div (drop)="onDrop($event)"
     (paste)="onPaste($event)">
-    <div *ngFor="let request of requests" class="file-uploader-progress" [title]="request.file.name">
+    <div *ngFor="let request of requests; trackBy: trackBy" class="file-uploader-progress" [title]="request.file.name">
         <div [style.width]="request.percent + '%'">{{request.percent}}%</div>
     </div>
     <p class="file-uploader-container">

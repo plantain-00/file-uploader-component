@@ -50,6 +50,9 @@ the online demo: https://plantain-00.github.io/file-uploader-component/demo/reac
 ```js
 import { FileUploaderModule } from "file-uploader-component/angular";
 
+// for angular AOT:
+// import { FileUploaderModule } from "file-uploader-component/aot/angular";
+
 @NgModule({
     imports: [BrowserModule, FormsModule, FileUploaderModule],
     declarations: [MainComponent],
@@ -100,6 +103,14 @@ fileUploaded | (response: any) => void | the event that is triggered when a file
 fileGot | (file: File or Blob) => void | the event that is triggered when got the file object
 
 #### change logs
+
+```ts
+// v5 angular AOT:
+import { FileUploaderModule } from "file-uploader-component/angular";
+
+// v6 angular AOT:
+import { FileUploaderModule } from "file-uploader-component/aot/angular";
+```
 
 ```bash
 // v5
