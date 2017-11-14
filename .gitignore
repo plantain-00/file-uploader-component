@@ -46,4 +46,7 @@ dist
 !**/*.index.bundle.js
 !**/*-*.css
 src/file-uploader.css
-src/compiled
+demo/**/*.metadata.json
+demo/**/*.ngsummary.json
+demo/aot/*.d.ts
+demo/*.d.ts
