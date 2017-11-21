@@ -25,8 +25,8 @@ export class FileUploader extends React.Component<Props, {}> {
 
     render() {
         const locale = common.getLocale(this.props.locale);
-        const progress = this.requests.map(request => (
-            <div className="file-uploader-progress" title={(request.file as File).name}>
+        const progress = this.requests.map((request, i) => (
+            <div className="file-uploader-progress" title={(request.file as File).name} key={i}>
                 <div style={{ width: request.percent + "%" }}>{request.percent}%</div>
             </div>
         ));
