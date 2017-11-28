@@ -1,0 +1,27 @@
+{
+  "name": "file-uploader-vue-component",
+  "version": "7.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "description": "A vuejs component of file uploader.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plantain-00/file-uploader-component.git"
+  },
+  "keywords": [
+    "file",
+    "upload",
+    "angular2"
+  ],
+  "author": "York Yao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/plantain-00/file-uploader-component/issues"
+  },
+  "homepage": "https://github.com/plantain-00/file-uploader-component#readme",
+  "dependencies": {
+    "file-uploader-component": "^7.0.0",
+    "vue": "2",
+    "vue-class-component": "6"
+  }
+}

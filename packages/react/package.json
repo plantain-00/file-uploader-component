@@ -1,0 +1,29 @@
+{
+  "name": "file-uploader-react-component",
+  "version": "7.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "description": "A reactjs component of file uploader.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plantain-00/file-uploader-component.git"
+  },
+  "keywords": [
+    "file",
+    "upload",
+    "react"
+  ],
+  "author": "York Yao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/plantain-00/file-uploader-component/issues"
+  },
+  "homepage": "https://github.com/plantain-00/file-uploader-component#readme",
+  "dependencies": {
+    "@types/react": "16",
+    "@types/react-dom": "16",
+    "file-uploader-component": "^7.0.0",
+    "react": "16",
+    "react-dom": "16"
+  }
+}

@@ -19,20 +19,18 @@
 + progress bar
 + multiple-language
 
-#### install
-
-`npm i file-uploader-component`
-
 #### link css
 
 ```html
-<link rel="stylesheet" href="./node_modules/file-uploader-component/file-uploader.min.css" />
+<link rel="stylesheet" href="./node_modules/file-uploader-component/dist/file-uploader.min.css" />
 ```
 
-#### reactjs component demo
+#### reactjs component
+
+`npm i file-uploader-react-component`
 
 ```js
-import { JSONEditor } from "file-uploader-component/react";
+import { JSONEditor } from "file-uploader-react-component";
 ```
 
 ```jsx
@@ -43,15 +41,14 @@ import { JSONEditor } from "file-uploader-component/react";
 </FileUploader>
 ```
 
-the online demo: https://plantain-00.github.io/file-uploader-component/demo/react/index.html
+the online demo: https://plantain-00.github.io/file-uploader-component/packages/react/demo
 
-#### angular component demo
+#### angular component
+
+`npm i file-uploader-angular-component`
 
 ```js
-import { FileUploaderModule } from "file-uploader-component/angular";
-
-// for angular AOT:
-// import { FileUploaderModule } from "file-uploader-component/aot/angular";
+import { FileUploaderModule } from "file-uploader-angular-component";
 
 @NgModule({
     imports: [BrowserModule, FormsModule, FileUploaderModule],
@@ -69,16 +66,16 @@ class MainModule { }
 </file-uploader>
 ```
 
-the online demo: https://plantain-00.github.io/file-uploader-component/demo/angular/index.html
+the online demo: https://plantain-00.github.io/file-uploader-component/packages/vue/demo/jit
 
-the AOT online demo: https://plantain-00.github.io/file-uploader-component/demo/aot/index.html
+the AOT online demo: https://plantain-00.github.io/file-uploader-component/packages/vue/demo/aot
 
-#### vuejs component demo
+#### vuejs component
 
-`npm i vue vue-class-component`
+`npm i file-uploader-vue-component`
 
 ```js
-import "file-uploader-component/vue";
+import "file-uploader-vue-component";
 ```
 
 ```jsx
@@ -89,7 +86,7 @@ import "file-uploader-component/vue";
 </file-uploader>
 ```
 
-the online demo: https://plantain-00.github.io/file-uploader-component/demo/vue/index.html
+the online demo: https://plantain-00.github.io/file-uploader-component/packages/vue/demo
 
 #### properties and events of the component
 
@@ -105,6 +102,36 @@ fileUploaded | (response: any) => void | the event that is triggered when a file
 fileGot | (file: File or Blob) => void | the event that is triggered when got the file object
 
 #### change logs
+
+```bash
+# v6
+npm i file-uploader-component
+
+# v7
+npm i file-uploader-vue-component
+npm i file-uploader-react-component
+npm i file-uploader-angular-component
+```
+
+```ts
+// v6
+import "file-uploader-component/vue";
+import { FileUploader } from "file-uploader-component/react";
+import { FileUploaderModule } from "file-uploader-component/angular";
+
+// v7
+import "file-uploader-vue-component";
+import { FileUploader } from "file-uploader-react-component";
+import { FileUploaderModule } from "file-uploader-angular-component";
+```
+
+```html
+// v6
+<link rel="stylesheet" href="./node_modules/file-uploader-component/file-uploader.min.css" />
+
+// v7
+<link rel="stylesheet" href="./node_modules/file-uploader-component/dist/file-uploader.min.css" />
+```
 
 ```ts
 // v5 angular AOT:

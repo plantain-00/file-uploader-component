@@ -1,28 +1,31 @@
 const { Service, checkGitStatus, executeScriptAsync } = require('clean-scripts')
 const { watch } = require('watch-then-execute')
 
-const tsFiles = `"src/**/*.ts" "src/**/*.tsx" "spec/**/*.ts" "demo/**/*.ts" "demo/**/*.tsx" "screenshots/**/*.ts"`
-const lessFiles = `"src/**/*.less"`
-const jsFiles = `"*.config.js" "demo/*.config.js" "spec/**/*.config.js"`
-const excludeTsFiles = `"demo/**/*.d.ts"`
+const tsFiles = `"packages/@(core|vue|react|angular)/@(src|demo)/**/*.@(ts|tsx)" "spec/**/*.ts" "screenshots/**/*.ts"`
+const lessFiles = `"packages/core/src/**/*.less"`
+const jsFiles = `"*.config.js" "spec/**/*.config.js"`
+const excludeTsFiles = `"packages/@(core|vue|react|angular)/@(src|demo)/**/*.d.ts"`
 
-const vueTemplateCommand = `file2variable-cli src/vue.template.html -o src/vue-variables.ts --html-minify --base src`
-const angularTemplateCommand = `file2variable-cli src/angular.template.html -o src/angular-variables.ts --html-minify --base src`
+const vueTemplateCommand = `file2variable-cli packages/vue/src/*.template.html -o packages/vue/src/variables.ts --html-minify --base packages/vue/src/`
+const angularTemplateCommand = `file2variable-cli packages/angular/src/*.template.html -o packages/angular/src/variables.ts --html-minify --base packages/angular/src`
 const ngcSrcCommand = [
-  `tsc -p src`,
-  `ngc -p src/tsconfig.aot.json`
+  `ngc -p packages/core/src`,
+  `tsc -p packages/vue/src`,
+  `tsc -p packages/react/src`,
+  `ngc -p packages/angular/src`
 ]
 const tscDemoCommand = [
-  `tsc -p demo`,
-  `ngc -p demo/tsconfig.aot.json`
+  `tsc -p packages/vue/demo`,
+  `tsc -p packages/react/demo`,
+  `ngc -p packages/angular/demo`
 ]
-const webpackCommand = `webpack --display-modules --config demo/webpack.config.js`
-const revStaticCommand = `rev-static --config demo/rev-static.config.js`
+const webpackCommand = `webpack`
+const revStaticCommand = `rev-static`
 const cssCommand = [
-  `lessc src/file-uploader.less > src/file-uploader.css`,
-  `postcss src/file-uploader.css -o dist/file-uploader.css`,
-  `cleancss -o dist/file-uploader.min.css dist/file-uploader.css`,
-  `cleancss -o demo/index.bundle.css dist/file-uploader.min.css ./node_modules/github-fork-ribbon-css/gh-fork-ribbon.css`
+  `lessc packages/core/src/file-uploader.less -sm=on > packages/core/src/file-uploader.css`,
+  `postcss packages/core/src/file-uploader.css -o packages/core/dist/file-uploader.css`,
+  `cleancss packages/core/dist/file-uploader.css -o packages/core/dist/file-uploader.min.css`,
+  `cleancss packages/core/dist/file-uploader.min.css ./node_modules/github-fork-ribbon-css/gh-fork-ribbon.css -o packages/core/demo/index.bundle.css`
 ]
 
 module.exports = {
@@ -40,8 +43,8 @@ module.exports = {
         webpackCommand
       ],
       css: cssCommand,
-      clean: `rimraf demo/**/index.bundle-*.js demo/index.bundle-*.css demo/demo-*.png demo/**/*.index.bundle-*.js`,
-      cpy: `cpy src/lib.d.ts dist`
+      clean: `rimraf "packages/@(core|vue|react|angular)/demo/**/@(*.bundle-*.js|*.bundle-*.css)"`,
+      cpy: `cpy packages/core/src/lib.d.ts packages/core/dist`
     },
     revStaticCommand
   ],
@@ -62,7 +65,6 @@ module.exports = {
     js: `standard --fix ${jsFiles}`,
     less: `stylelint --fix ${lessFiles}`
   },
-  release: `clean-release`,
   watch: {
     vue: `${vueTemplateCommand} --watch`,
     angular: `${angularTemplateCommand} --watch`,
