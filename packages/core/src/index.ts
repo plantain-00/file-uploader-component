@@ -12,6 +12,9 @@ export const defaultLocale = {
 
 export type Locale = typeof defaultLocale;
 
+/**
+ * @public
+ */
 export function getLocale(locale: null | undefined | Locale): Locale {
     return locale || defaultLocale;
 }
@@ -44,6 +47,9 @@ function upload(name: string | undefined, url: string | undefined, method: strin
     }
 }
 
+/**
+ * @public
+ */
 export function onDrop(e: DragEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
     const files = e.dataTransfer.files;
     if (files.length > 0) {
@@ -64,6 +70,9 @@ export function onDrop(e: DragEvent, name: string | undefined, url: string | und
     }
 }
 
+/**
+ * @public
+ */
 export function onPaste(e: ClipboardEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
     const items = e.clipboardData.items;
     if (items.length > 0) {
@@ -89,6 +98,9 @@ export function onPaste(e: ClipboardEvent, name: string | undefined, url: string
     }
 }
 
+/**
+ * @public
+ */
 export function onFileUploaded(e: Event, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
     const files = (e.currentTarget as HTMLInputElement).files;
     if (files) {
@@ -110,12 +122,18 @@ export function onFileUploaded(e: Event, name: string | undefined, url: string |
     }
 }
 
+/**
+ * @public
+ */
 export type UploadRequest = {
     percent: number;
     file: File | Blob;
     request: XMLHttpRequest;
 };
 
+/**
+ * @public
+ */
 export function removeRequest(requests: UploadRequest[], request: XMLHttpRequest) {
     for (let i = 0; i < requests.length; i++) {
         if (requests[i].request === request) {
