@@ -1,6 +1,6 @@
 {
   "name": "file-uploader-angular-component",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A angular component of file uploader.",
@@ -21,18 +21,15 @@
   "homepage": "https://github.com/plantain-00/file-uploader-component#readme",
   "dependencies": {
     "@angular/common": "5",
-    "@angular/compiler": "5",
-    "@angular/compiler-cli": "5",
     "@angular/core": "5",
-    "@angular/forms": "5",
-    "@angular/http": "5",
-    "@angular/platform-browser": "5",
-    "@angular/platform-browser-dynamic": "5",
-    "@angular/router": "5",
-    "@angular/upgrade": "5",
-    "core-js": "2",
-    "file-uploader-component": "^7.0.1",
-    "rxjs": "5",
-    "zone.js": "0.8"
+    "file-uploader-component": "^7.0.1"
+  },
+  "devDependencies": {
+    "@angular/forms": "5.0.3",
+    "@angular/platform-browser": "5.0.3",
+    "@angular/platform-browser-dynamic": "5.0.3",
+    "core-js": "2.5.1",
+    "rxjs": "5.5.2",
+    "zone.js": "0.8.18"
   }
 }
