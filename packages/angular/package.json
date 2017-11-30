@@ -1,6 +1,6 @@
 {
   "name": "file-uploader-angular-component",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A angular component of file uploader.",
@@ -31,7 +31,7 @@
     "@angular/router": "5",
     "@angular/upgrade": "5",
     "core-js": "2",
-    "file-uploader-component": "^7.0.0",
+    "file-uploader-component": "^7.0.1",
     "rxjs": "5",
     "zone.js": "0.8"
   }

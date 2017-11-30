@@ -10,7 +10,7 @@ let locale: Locale | null = null;
 @Component({
     template: `
     <div style="margin: 10px; width: 800px">
-        <a href="https://github.com/plantain-00/file-uploader-component/tree/master/demo/vue/index.ts" target="_blank">the source code of the demo</a>
+        <a href="https://github.com/plantain-00/file-uploader-component/tree/master/packages/vue/demo" target="_blank">the source code of the demo</a>
         <h3>just get the file or blob object and print it at console</h3>
         <file-uploader @file-got="fileGot($event)"
             accept="image/*"

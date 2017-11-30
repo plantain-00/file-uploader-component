@@ -1,6 +1,6 @@
 {
   "name": "file-uploader-vue-component",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A vuejs component of file uploader.",
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/plantain-00/file-uploader-component#readme",
   "dependencies": {
-    "file-uploader-component": "^7.0.0",
+    "file-uploader-component": "^7.0.1",
     "vue": "2",
     "vue-class-component": "6"
   }

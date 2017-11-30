@@ -13,7 +13,7 @@ class Main extends React.Component<{}, {}> {
     render() {
         return (
             <div style={{ margin: "10px", width: "800px" }}>
-                <a href="https://github.com/plantain-00/file-uploader-component/tree/master/demo/react/index.tsx" target="_blank">the source code of the demo</a>
+                <a href="https://github.com/plantain-00/file-uploader-component/tree/master/packages/react/demo" target="_blank">the source code of the demo</a>
                 <h3>just get the file or blob object and print it at console</h3>
                 <FileUploader fileGot={this.fileGot}
                     accept="image/*"

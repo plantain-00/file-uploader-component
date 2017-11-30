@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
     selector: "app",
     template: `
     <div style="margin: 10px; width: 800px">
-        <a href="https://github.com/plantain-00/file-uploader-component/tree/master/demo/angular/index.ts" target="_blank">the source code of the demo</a>
+        <a href="https://github.com/plantain-00/file-uploader-component/tree/master/packages/angular/demo" target="_blank">the source code of the demo</a>
         <h3>just get the file or blob object and print it at console</h3>
         <file-uploader (fileGot)="fileGot($event)"
             accept="image/*"

@@ -1,6 +1,6 @@
 module.exports = {
   inputFiles: [
-    'packages/@(vue|react|angular)/demo/**/*.bundle.js',
+    'packages/@(vue|react|angular)/demo/**/index.bundle.js',
     'packages/@(vue|react|angular)/demo/**/*.ejs.html',
     'packages/core/demo/*.bundle.css',
     'packages/core/demo/demo.png'
