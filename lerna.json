@@ -6,7 +6,7 @@
   "version": "7.0.2",
   "npmClient": "yarn",
   "npmClientArgs": [
-    "--pure-lockfile"
+    "--frozen-lockfile"
   ],
   "command": {
     "publish": {
