@@ -6,9 +6,9 @@ import { indexTemplateHtml } from "./variables";
 
 @Component({
     props: ["accept", "multiple", "locale", "name", "url", "method"],
-    template: indexTemplateHtml,
+    render: indexTemplateHtml,
 })
-class FileUploader extends Vue {
+export class FileUploader extends Vue {
     accept: string;
     multiple: boolean;
     locale: common.Locale | undefined;
