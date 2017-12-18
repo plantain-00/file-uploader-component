@@ -40,7 +40,7 @@
     "clean-css-cli": "4.1.10",
     "clean-scripts": "1.7.0",
     "cpy-cli": "1.0.1",
-    "file2variable-cli": "1.7.3",
+    "file2variable-cli": "1.8.0",
     "github-fork-ribbon-css": "0.2.1",
     "http-server": "0.10.0",
     "jasmine": "2.8.0",
