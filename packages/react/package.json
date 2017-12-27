@@ -1,6 +1,6 @@
 {
   "name": "file-uploader-react-component",
-  "version": "7.0.1",
+  "version": "7.1.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A reactjs component of file uploader.",
@@ -19,13 +19,21 @@
     "url": "https://github.com/plantain-00/file-uploader-component/issues"
   },
   "homepage": "https://github.com/plantain-00/file-uploader-component#readme",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
-    "file-uploader-component": "^7.0.1",
+    "file-uploader-component": "^7.1.1",
     "react": "16",
     "react-dom": "16"
   },
   "devDependencies": {
     "@types/react": "16.0.25",
     "@types/react-dom": "16.0.3"
+  },
+  "peerDependencies": {
+    "file-uploader-component": "^7.1.1",
+    "react": "16",
+    "react-dom": "16"
   }
 }
