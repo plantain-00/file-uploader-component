@@ -1,3 +1,5 @@
+# file-uploader-component
+
 [![Dependency Status](https://david-dm.org/plantain-00/file-uploader-component.svg)](https://david-dm.org/plantain-00/file-uploader-component)
 [![devDependency Status](https://david-dm.org/plantain-00/file-uploader-component/dev-status.svg)](https://david-dm.org/plantain-00/file-uploader-component#info=devDependencies)
 [![Build Status: Linux](https://travis-ci.org/plantain-00/file-uploader-component.svg?branch=master)](https://travis-ci.org/plantain-00/file-uploader-component)
@@ -5,9 +7,7 @@
 [![npm version](https://badge.fury.io/js/file-uploader-component.svg)](https://badge.fury.io/js/file-uploader-component)
 [![Downloads](https://img.shields.io/npm/dm/file-uploader-component.svg)](https://www.npmjs.com/package/file-uploader-component)
 
-# file-uploader-component
-
-#### features
+## features
 
 + reactjs component
 + angular component
@@ -19,13 +19,13 @@
 + progress bar
 + multiple-language
 
-#### link css
+## link css
 
 ```html
 <link rel="stylesheet" href="./node_modules/file-uploader-component/dist/file-uploader.min.css" />
 ```
 
-#### reactjs component
+## reactjs component
 
 `npm i file-uploader-react-component`
 
@@ -41,9 +41,9 @@ import { JSONEditor } from "file-uploader-react-component";
 </FileUploader>
 ```
 
-the online demo: https://plantain-00.github.io/file-uploader-component/packages/react/demo
+the online demo: <https://plantain-00.github.io/file-uploader-component/packages/react/demo>
 
-#### angular component
+## angular component
 
 `npm i file-uploader-angular-component`
 
@@ -66,11 +66,11 @@ class MainModule { }
 </file-uploader>
 ```
 
-the online demo: https://plantain-00.github.io/file-uploader-component/packages/vue/demo/jit
+the online demo: <https://plantain-00.github.io/file-uploader-component/packages/vue/demo/jit>
 
-the AOT online demo: https://plantain-00.github.io/file-uploader-component/packages/vue/demo/aot
+the AOT online demo: <https://plantain-00.github.io/file-uploader-component/packages/vue/demo/aot>
 
-#### vuejs component
+## vuejs component
 
 `npm i file-uploader-vue-component`
 
@@ -86,9 +86,9 @@ import "file-uploader-vue-component";
 </file-uploader>
 ```
 
-the online demo: https://plantain-00.github.io/file-uploader-component/packages/vue/demo
+the online demo: <https://plantain-00.github.io/file-uploader-component/packages/vue/demo>
 
-#### properties and events of the component
+## properties and events of the component
 
 name | type | description
 --- | --- | ---
@@ -101,7 +101,7 @@ method | string? | the upload API method
 fileUploaded | (response: any) => void | the event that is triggered when a file is uploaded
 fileGot | (file: File or Blob) => void | the event that is triggered when got the file object
 
-#### change logs
+## change logs
 
 ```bash
 # v6
@@ -157,7 +157,7 @@ locale is an object that can be imported dynamicly
 locale is a string
 ```
 
-```
+```bash
 // v3
 // link css
 
@@ -165,9 +165,9 @@ locale is a string
 // no css file to link
 ```
 
-```
+```bash
 // v2
-fileUploaded: 
+fileUploaded:
 // the event that is triggered when a file is uploaded to server
 
 // v1
