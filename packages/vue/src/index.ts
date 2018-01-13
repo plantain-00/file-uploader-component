@@ -17,7 +17,9 @@ export class FileUploader extends Vue {
     url: string;
     method: string;
 
-    localeObject = common.getLocale(this.locale);
+    get localeObject() {
+        return common.getLocale(this.locale);
+    }
 
     requests: common.UploadRequest[] = [];
 

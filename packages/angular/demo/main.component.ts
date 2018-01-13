@@ -35,6 +35,13 @@ export class MainComponent {
     name = "test";
     url = "http://localhost:9997";
     method = "POST";
+    ngOnInit() {
+        if (navigator.language === "zh-CN") {
+            import("../../core/dist/locales/" + navigator.language + ".js").then(module => {
+                this.locale = module.locale;
+            });
+        }
+    }
     fileGot(response: any) {
         // tslint:disable-next-line:no-console
         console.log(response);

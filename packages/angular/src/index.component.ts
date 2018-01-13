@@ -28,7 +28,9 @@ export class FileUploaderComponent {
     @Output()
     fileUploaded = new EventEmitter<any>();
 
-    localeObject: common.Locale;
+    get localeObject() {
+        return common.getLocale(this.locale);
+    }
 
     requests: common.UploadRequest[] = [];
 
@@ -69,9 +71,6 @@ export class FileUploaderComponent {
         });
     }
 
-    ngOnInit() {
-        this.localeObject = common.getLocale(this.locale);
-    }
     trackBy(request: common.UploadRequest, index: number) {
         return index;
     }
