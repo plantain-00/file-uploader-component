@@ -1,11 +1,11 @@
-import Vue from "vue";
-import Component from "vue-class-component";
+import Vue from 'vue'
+import Component from 'vue-class-component'
 
 // tslint:disable:no-duplicate-imports
-import "../dist/";
+import '../dist/'
 
 @Component({
-    template: `
+  template: `
     <div style="margin: 10px; width: 800px">
         <a href="https://github.com/plantain-00/file-uploader-component/tree/master/packages/vue/demo" target="_blank">the source code of the demo</a>
         <h3>just get the file or blob object and print it at console</h3>
@@ -31,29 +31,30 @@ import "../dist/";
             :method="method">
         </file-uploader>
     </div>
-    `,
+    `
 })
 class App extends Vue {
-    locale = null;
-    name = "test";
-    url = "http://localhost:9997";
-    method = "POST";
+  locale = null
+  name = 'test'
+  url = 'http://localhost:9997'
+  method = 'POST'
 
-    beforeCreate() {
-        if (navigator.language === "zh-CN") {
-            import("../../core/dist/locales/" + navigator.language + ".js").then(module => {
-                this.locale = module.locale;
-            });
-        }
+  beforeCreate () {
+    if (navigator.language === 'zh-CN') {
+      import('../../core/dist/locales/' + navigator.language + '.js').then(module => {
+        this.locale = module.locale
+      })
     }
-    fileGot(file: File | Blob) {
+  }
+  fileGot (file: File | Blob) {
         // tslint:disable-next-line:no-console
-        console.log(file);
-    }
-    fileUploaded(response: any) {
+    console.log(file)
+  }
+  fileUploaded (response: any) {
         // tslint:disable-next-line:no-console
-        console.log(response);
-    }
+    console.log(response)
+  }
 }
 
-new App({ el: "#container" });
+// tslint:disable-next-line:no-unused-expression
+new App({ el: '#container' })

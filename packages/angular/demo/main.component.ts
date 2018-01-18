@@ -1,8 +1,8 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core'
 
 @Component({
-    selector: "app",
-    template: `
+  selector: 'app',
+  template: `
     <div style="margin: 10px; width: 800px">
         <a href="https://github.com/plantain-00/file-uploader-component/tree/master/packages/angular/demo" target="_blank">the source code of the demo</a>
         <h3>just get the file or blob object and print it at console</h3>
@@ -28,26 +28,26 @@ import { Component } from "@angular/core";
             [method]="method">
         </file-uploader>
     </div>
-    `,
+    `
 })
 export class MainComponent {
-    locale = null;
-    name = "test";
-    url = "http://localhost:9997";
-    method = "POST";
-    ngOnInit() {
-        if (navigator.language === "zh-CN") {
-            import("../../core/dist/locales/" + navigator.language + ".js").then(module => {
-                this.locale = module.locale;
-            });
-        }
+  locale = null
+  name = 'test'
+  url = 'http://localhost:9997'
+  method = 'POST'
+  ngOnInit () {
+    if (navigator.language === 'zh-CN') {
+      import('../../core/dist/locales/' + navigator.language + '.js').then(module => {
+        this.locale = module.locale
+      })
     }
-    fileGot(response: any) {
+  }
+  fileGot (response: any) {
         // tslint:disable-next-line:no-console
-        console.log(response);
-    }
-    fileUploaded(file: File | Blob) {
+    console.log(response)
+  }
+  fileUploaded (file: File | Blob) {
         // tslint:disable-next-line:no-console
-        console.log(file);
-    }
+    console.log(file)
+  }
 }
