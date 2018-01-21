@@ -48,11 +48,9 @@ class Main extends React.Component<{}, {}> {
   }
 
   private fileGot (response: any) {
-        // tslint:disable-next-line:no-console
     console.log(response)
   }
   private fileUploaded (file: File | Blob) {
-        // tslint:disable-next-line:no-console
     console.log(file)
   }
 }

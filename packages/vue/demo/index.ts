@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 
-// tslint:disable:no-duplicate-imports
 import '../dist/'
 
 @Component({
@@ -47,11 +46,9 @@ class App extends Vue {
     }
   }
   fileGot (file: File | Blob) {
-        // tslint:disable-next-line:no-console
     console.log(file)
   }
   fileUploaded (response: any) {
-        // tslint:disable-next-line:no-console
     console.log(response)
   }
 }

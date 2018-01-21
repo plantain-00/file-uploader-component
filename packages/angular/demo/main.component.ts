@@ -43,11 +43,9 @@ export class MainComponent {
     }
   }
   fileGot (response: any) {
-        // tslint:disable-next-line:no-console
     console.log(response)
   }
   fileUploaded (file: File | Blob) {
-        // tslint:disable-next-line:no-console
     console.log(file)
   }
 }
