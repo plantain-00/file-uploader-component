@@ -26,24 +26,24 @@ export class FileUploader extends React.Component<Props, {}> {
   render () {
     const locale = common.getLocale(this.props.locale)
     const progress = this.requests.map((request, i) => (
-            <div className='file-uploader-progress' title={(request.file as File).name} key={i}>
-                <div style={{ width: request.percent + '%' }}>{request.percent}%</div>
-            </div>
-        ))
+      <div className='file-uploader-progress' title={(request.file as File).name} key={i}>
+        <div style={{ width: request.percent + '%' }}>{request.percent}%</div>
+      </div>
+    ))
     return (
-            <div onDrop={(e: React.DragEvent<HTMLElement> | DragEvent) => { this.onDrop(e as DragEvent) }}
-                onPaste={(e: React.ClipboardEvent<HTMLElement> | ClipboardEvent) => { this.onPaste(e as ClipboardEvent) }}>
-                {progress}
-                <p className='file-uploader-container'>
-                    {locale.dragAndDrop}
-                    <span>{locale.selectFile}</span>
-                    {locale.pasteFromClipboard}
-                    <input type='file'
-                        multiple={this.props.multiple}
-                        accept={this.props.accept}
-                        onChange={(e: React.FormEvent<HTMLElement> | Event) => { this.onFileUploaded(e as Event) }} />
-                </p>
-            </div>
+      <div onDrop={(e: React.DragEvent<HTMLElement> | DragEvent) => { this.onDrop(e as DragEvent) }}
+        onPaste={(e: React.ClipboardEvent<HTMLElement> | ClipboardEvent) => { this.onPaste(e as ClipboardEvent) }}>
+        {progress}
+        <p className='file-uploader-container'>
+          {locale.dragAndDrop}
+          <span>{locale.selectFile}</span>
+          {locale.pasteFromClipboard}
+          <input type='file'
+            multiple={this.props.multiple}
+            accept={this.props.accept}
+            onChange={(e: React.FormEvent<HTMLElement> | Event) => { this.onFileUploaded(e as Event) }} />
+        </p>
+      </div>
     )
   }
 
