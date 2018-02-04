@@ -10,12 +10,12 @@ import { indexTemplateHtml, indexTemplateHtmlStatic } from './variables'
   staticRenderFns: indexTemplateHtmlStatic
 })
 export class FileUploader extends Vue {
-  accept: string
-  multiple: boolean
+  accept!: string
+  multiple!: boolean
   locale: common.Locale | undefined
-  name: string
-  url: string
-  method: string
+  name!: string
+  url!: string
+  method!: string
 
   get localeObject () {
     return common.getLocale(this.locale)
