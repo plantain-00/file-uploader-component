@@ -30,7 +30,7 @@
 `npm i file-uploader-react-component`
 
 ```js
-import { JSONEditor } from "file-uploader-react-component";
+import { FileUploader } from "file-uploader-react-component";
 ```
 
 ```jsx
