@@ -8,17 +8,16 @@ const excludeTsFiles = `"packages/@(core|vue|react|angular)/@(src|demo)/**/*.d.t
 
 const vueTemplateCommand = `file2variable-cli --config packages/vue/src/file2variable.config.js`
 const angularTemplateCommand = `file2variable-cli packages/angular/src/*.template.html -o packages/angular/src/variables.ts --html-minify --base packages/angular/src`
-const ngcSrcCommand = [
-  `ngc -p packages/core/src`,
-  `tsc -p packages/vue/src`,
-  `tsc -p packages/react/src`,
-  `ngc -p packages/angular/src`
-]
-const tscDemoCommand = [
-  `tsc -p packages/vue/demo`,
-  `tsc -p packages/react/demo`,
-  `ngc -p packages/angular/demo`
-]
+
+const tscCoreSrcCommand = `ngc -p packages/core/src`
+const tscVueSrcCommand = `tsc -p packages/vue/src`
+const tscReactSrcCommand = `tsc -p packages/react/src`
+const tscAngularSrcCommand = `ngc -p packages/angular/src`
+
+const tscVueDemoCommand = `tsc -p packages/vue/demo`
+const tscReactDemoCommand = `tsc -p packages/react/demo`
+const tscAngularDemoCommand = `ngc -p packages/angular/demo`
+
 const webpackCommand = `webpack`
 const revStaticCommand = `rev-static`
 const cssCommand = [
@@ -33,11 +32,20 @@ module.exports = {
     {
       js: [
         {
-          vue: vueTemplateCommand,
-          angular: angularTemplateCommand
+          vueTemplateCommand,
+          angularTemplateCommand
         },
-        ngcSrcCommand,
-        tscDemoCommand,
+        tscCoreSrcCommand,
+        {
+          tscVueSrcCommand,
+          tscReactSrcCommand,
+          tscAngularSrcCommand
+        },
+        {
+          tscVueDemoCommand,
+          tscReactDemoCommand,
+          tscAngularDemoCommand
+        },
         webpackCommand
       ],
       css: cssCommand,
@@ -65,10 +73,15 @@ module.exports = {
     less: `stylelint --fix ${lessFiles}`
   },
   watch: {
-    vue: `${vueTemplateCommand} --watch`,
-    angular: `${angularTemplateCommand} --watch`,
-    src: `${ngcSrcCommand} --watch`,
-    demo: `${tscDemoCommand} --watch`,
+    vueTemplateCommand: `${vueTemplateCommand} --watch`,
+    angularTemplateCommand: `${angularTemplateCommand} --watch`,
+    tscCoreSrcCommand: `${tscCoreSrcCommand} --watch`,
+    tscVueSrcCommand: `${tscVueSrcCommand} --watch`,
+    tscReactSrcCommand: `${tscReactSrcCommand} --watch`,
+    tscAngularSrcCommand: `${tscAngularSrcCommand} --watch`,
+    tscVueDemoCommand: `${tscVueDemoCommand} --watch`,
+    tscReactDemoCommand: `${tscReactDemoCommand} --watch`,
+    tscAngularDemoCommand: `${tscAngularDemoCommand} --watch`,
     webpack: `${webpackCommand} --watch`,
     less: () => watch(['src/**/*.less'], [], () => executeScriptAsync(cssCommand)),
     rev: `${revStaticCommand} --watch`
