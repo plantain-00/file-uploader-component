@@ -28,9 +28,9 @@
     "file-uploader-component": "^7.1.4"
   },
   "devDependencies": {
-    "@angular/forms": "5.2.6",
-    "@angular/platform-browser": "5.2.6",
-    "@angular/platform-browser-dynamic": "5.2.6",
+    "@angular/forms": "5.2.7",
+    "@angular/platform-browser": "5.2.7",
+    "@angular/platform-browser-dynamic": "5.2.7",
     "core-js": "2.5.3",
     "rxjs": "5.5.6",
     "zone.js": "0.8.20"
