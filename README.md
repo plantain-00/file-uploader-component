@@ -66,9 +66,9 @@ class MainModule { }
 </file-uploader>
 ```
 
-the online demo: <https://plantain-00.github.io/file-uploader-component/packages/vue/demo/jit>
+the online demo: <https://plantain-00.github.io/file-uploader-component/packages/angular/demo/jit>
 
-the AOT online demo: <https://plantain-00.github.io/file-uploader-component/packages/vue/demo/aot>
+the AOT online demo: <https://plantain-00.github.io/file-uploader-component/packages/angular/demo/aot>
 
 ## vuejs component
 
