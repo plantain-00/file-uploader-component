@@ -1,6 +1,6 @@
 {
   "name": "file-uploader-react-component",
-  "version": "7.1.4",
+  "version": "7.2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A reactjs component of file uploader.",
@@ -23,7 +23,7 @@
     "dist"
   ],
   "dependencies": {
-    "file-uploader-component": "^7.1.4",
+    "file-uploader-component": "^7.2.0",
     "react": "16",
     "react-dom": "16"
   },
@@ -32,7 +32,7 @@
     "@types/react-dom": "16.0.4"
   },
   "peerDependencies": {
-    "file-uploader-component": "^7.1.4",
+    "file-uploader-component": "^7.2.0",
     "react": "16",
     "react-dom": "16"
   }

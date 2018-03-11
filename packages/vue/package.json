@@ -1,6 +1,6 @@
 {
   "name": "file-uploader-vue-component",
-  "version": "7.1.4",
+  "version": "7.2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A vuejs component of file uploader.",
@@ -23,12 +23,12 @@
     "dist"
   ],
   "dependencies": {
-    "file-uploader-component": "^7.1.4",
+    "file-uploader-component": "^7.2.0",
     "vue": "2",
     "vue-class-component": "6"
   },
   "peerDependencies": {
-    "file-uploader-component": "^7.1.4",
+    "file-uploader-component": "^7.2.0",
     "vue": "2",
     "vue-class-component": "6"
   }

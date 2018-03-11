@@ -1,6 +1,6 @@
 {
   "name": "file-uploader-angular-component",
-  "version": "7.1.4",
+  "version": "7.2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A angular component of file uploader.",
@@ -25,7 +25,7 @@
   "dependencies": {
     "@angular/common": "5",
     "@angular/core": "5",
-    "file-uploader-component": "^7.1.4"
+    "file-uploader-component": "^7.2.0"
   },
   "devDependencies": {
     "@angular/forms": "5.2.8",
@@ -38,6 +38,6 @@
   "peerDependencies": {
     "@angular/common": "5",
     "@angular/core": "5",
-    "file-uploader-component": "^7.1.4"
+    "file-uploader-component": "^7.2.0"
   }
 }
