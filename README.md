@@ -33,6 +33,14 @@
 import { FileUploader } from "file-uploader-react-component";
 ```
 
+or
+
+```html
+<script src="./node_modules/react/umd/react.production.min.js"></script>
+<script src="./node_modules/react-dom/umd/react-dom.production.min.js"></script>
+<script src="./node_modules/file-uploader-react-component/dist/file-uploader-react-component.min.js"></script>
+```
+
 ```jsx
 <FileUploader fileUploaded={this.fileUploaded}
     fileGot={this.fileGot}
@@ -76,6 +84,14 @@ the AOT online demo: <https://plantain-00.github.io/file-uploader-component/pack
 
 ```js
 import "file-uploader-vue-component";
+```
+
+or
+
+```html
+<script src="./node_modules/vue/dist/vue.min.js"></script>
+<script src="./node_modules/vue-class-component/dist/vue-class-component.min.js"></script>
+<script src="./node_modules/file-uploader-vue-component/dist/file-uploader-vue-component.min.js"></script>
 ```
 
 ```jsx
