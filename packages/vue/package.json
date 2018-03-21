@@ -2,6 +2,9 @@
   "name": "file-uploader-vue-component",
   "version": "7.2.0",
   "main": "dist/index.js",
+  "module": "dist/index.js",
+  "unpkg": "dist/file-uploader-vue-component.min.js",
+  "jsdelivr": "dist/file-uploader-vue-component.min.js",
   "types": "dist/index.d.ts",
   "description": "A vuejs component of file uploader.",
   "repository": {
