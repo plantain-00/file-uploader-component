@@ -57,15 +57,17 @@ export function onDrop (e: DragEvent, name: string | undefined, url: string | un
     e.stopPropagation()
     for (let i = 0; i < files.length; i++) {
       const file = files.item(i)
-      upload(name, url, method, file, () => {
-        fileGot(file)
-      }, request => {
-        fileUploaded(request)
-      }, percent => {
-        progress(percent)
-      }, fileRequest => {
-        requestCreated(fileRequest)
-      })
+      if (file) {
+        upload(name, url, method, file, () => {
+          fileGot(file)
+        }, request => {
+          fileUploaded(request)
+        }, percent => {
+          progress(percent)
+        }, fileRequest => {
+          requestCreated(fileRequest)
+        })
+      }
     }
   }
 }
@@ -107,15 +109,17 @@ export function onFileUploaded (e: Event, name: string | undefined, url: string 
     if (files.length > 0) {
       for (let i = 0; i < files.length; i++) {
         const file = files.item(i)
-        upload(name, url, method, file, () => {
-          fileGot(file)
-        }, request => {
-          fileUploaded(request)
-        }, percent => {
-          progress(percent)
-        }, fileRequest => {
-          requestCreated(fileRequest)
-        })
+        if (file) {
+          upload(name, url, method, file, () => {
+            fileGot(file)
+          }, request => {
+            fileUploaded(request)
+          }, percent => {
+            progress(percent)
+          }, fileRequest => {
+            requestCreated(fileRequest)
+          })
+        }
       }
     }
   }
