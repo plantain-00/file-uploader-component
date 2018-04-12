@@ -23,8 +23,8 @@
     "dist"
   ],
   "dependencies": {
-    "@angular/common": "5",
-    "@angular/core": "5",
+    "@angular/common": "4 || 5",
+    "@angular/core": "4 || 5",
     "file-uploader-component": "^7.2.0"
   },
   "devDependencies": {
@@ -36,8 +36,8 @@
     "zone.js": "0.8.25"
   },
   "peerDependencies": {
-    "@angular/common": "5",
-    "@angular/core": "5",
+    "@angular/common": "4 || 5",
+    "@angular/core": "4 || 5",
     "file-uploader-component": "^7.2.0"
   }
 }
