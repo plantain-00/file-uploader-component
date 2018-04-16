@@ -1,0 +1,15 @@
+<div @drop="onDrop($event)"
+    @paste="onPaste($event)">
+    <div v-for="(request, i) in requests" :key="i" class="file-uploader-progress" :title="request.file.name">
+        <div :style="getProgressWidth(request)">{{request.percent}}%</div>
+    </div>
+    <p class="file-uploader-container">
+        {{localeObject.dragAndDrop}}
+        <span>{{localeObject.selectFile}}</span>
+        {{localeObject.pasteFromClipboard}}
+        <input type="file"
+            :multiple="multiple"
+            :accept="accept"
+            @change="onFileUploaded($event)" />
+    </p>
+</div>
