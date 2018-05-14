@@ -8,7 +8,7 @@ class Main extends React.Component<{}, {}> {
   private url = 'http://localhost:9997'
   private method = 'POST'
 
-  componentWillMount () {
+  componentWillMount() {
     if (navigator.language === 'zh-CN') {
       import('../../core/dist/locales/' + navigator.language + '.js').then(module => {
         this.locale = module.locale
@@ -17,7 +17,7 @@ class Main extends React.Component<{}, {}> {
     }
   }
 
-  render () {
+  render() {
     return (
       <div style={{ margin: '10px', width: '800px' }}>
         <a href='https://github.com/plantain-00/file-uploader-component/tree/master/packages/react/demo' target='_blank'>the source code of the demo</a>
@@ -47,10 +47,10 @@ class Main extends React.Component<{}, {}> {
     )
   }
 
-  private fileGot (response: any) {
+  private fileGot(response: any) {
     console.log(response)
   }
-  private fileUploaded (file: File | Blob) {
+  private fileUploaded(file: File | Blob) {
     console.log(file)
   }
 }
