@@ -15,11 +15,11 @@ export type Locale = typeof defaultLocale
 /**
  * @public
  */
-export function getLocale (locale: null | undefined | Locale): Locale {
+export function getLocale(locale: null | undefined | Locale): Locale {
   return locale || defaultLocale
 }
 
-function upload (name: string | undefined, url: string | undefined, method: string | undefined, file: File | Blob, fileGot: () => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
+function upload(name: string | undefined, url: string | undefined, method: string | undefined, file: File | Blob, fileGot: () => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
   fileGot()
 
   if (name && url && method) {
@@ -50,7 +50,7 @@ function upload (name: string | undefined, url: string | undefined, method: stri
 /**
  * @public
  */
-export function onDrop (e: DragEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
+export function onDrop(e: DragEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
   const files = e.dataTransfer.files
   if (files.length > 0) {
     e.preventDefault()
@@ -75,7 +75,7 @@ export function onDrop (e: DragEvent, name: string | undefined, url: string | un
 /**
  * @public
  */
-export function onPaste (e: ClipboardEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
+export function onPaste(e: ClipboardEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
   const items = e.clipboardData.items
   if (items.length > 0) {
     e.preventDefault()
@@ -102,7 +102,7 @@ export function onPaste (e: ClipboardEvent, name: string | undefined, url: strin
 /**
  * @public
  */
-export function onFileUploaded (e: Event, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
+export function onFileUploaded(e: Event, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
   const files = (e.currentTarget as HTMLInputElement).files
   if (files) {
     e.preventDefault()
@@ -137,7 +137,7 @@ export type UploadRequest = {
 /**
  * @public
  */
-export function removeRequest (requests: UploadRequest[], request: XMLHttpRequest) {
+export function removeRequest(requests: UploadRequest[], request: XMLHttpRequest) {
   for (let i = 0; i < requests.length; i++) {
     if (requests[i].request === request) {
       requests.splice(i, 1)

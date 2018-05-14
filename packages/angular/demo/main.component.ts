@@ -35,17 +35,17 @@ export class MainComponent {
   name = 'test'
   url = 'http://localhost:9997'
   method = 'POST'
-  ngOnInit () {
+  ngOnInit() {
     if (navigator.language === 'zh-CN') {
       import('../../core/dist/locales/' + navigator.language + '.js').then(module => {
         this.locale = module.locale
       })
     }
   }
-  fileGot (response: any) {
+  fileGot(response: any) {
     console.log(response)
   }
-  fileUploaded (file: File | Blob) {
+  fileUploaded(file: File | Blob) {
     console.log(file)
   }
 }

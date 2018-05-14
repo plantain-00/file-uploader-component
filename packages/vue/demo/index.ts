@@ -38,17 +38,17 @@ class App extends Vue {
   url = 'http://localhost:9997'
   method = 'POST'
 
-  beforeCreate () {
+  beforeCreate() {
     if (navigator.language === 'zh-CN') {
       import('../../core/dist/locales/' + navigator.language + '.js').then(module => {
         this.locale = module.locale
       })
     }
   }
-  fileGot (file: File | Blob) {
+  fileGot(file: File | Blob) {
     console.log(file)
   }
-  fileUploaded (response: any) {
+  fileUploaded(response: any) {
     console.log(response)
   }
 }
