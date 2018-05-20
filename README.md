@@ -27,6 +27,8 @@
 
 ## reactjs component
 
+[![gzip size](https://img.badgesize.io/https://unpkg.com/file-uploader-react-component?compression=gzip)](https://unpkg.com/file-uploader-react-component)
+
 `npm i file-uploader-react-component`
 
 ```js
@@ -79,6 +81,8 @@ the online demo: <https://plantain-00.github.io/file-uploader-component/packages
 the AOT online demo: <https://plantain-00.github.io/file-uploader-component/packages/angular/demo/aot>
 
 ## vuejs component
+
+[![gzip size](https://img.badgesize.io/https://unpkg.com/file-uploader-vue-component?compression=gzip)](https://unpkg.com/file-uploader-vue-component)
 
 `npm i file-uploader-vue-component`
 
