@@ -14,7 +14,7 @@ const fileUploadedEventName = 'file-uploaded'
 export class FileUploader extends Vue {
   accept!: string
   multiple!: boolean
-  locale: common.Locale | undefined
+  locale?: common.Locale
   name!: string
   url!: string
   method!: string
