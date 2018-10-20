@@ -51,22 +51,24 @@ function upload(name: string | undefined, url: string | undefined, method: strin
  * @public
  */
 export function onDrop(e: DragEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
-  const files = e.dataTransfer.files
-  if (files.length > 0) {
-    e.preventDefault()
-    e.stopPropagation()
-    for (let i = 0; i < files.length; i++) {
-      const file = files.item(i)
-      if (file) {
-        upload(name, url, method, file, () => {
-          fileGot(file)
-        }, request => {
-          fileUploaded(request)
-        }, percent => {
-          progress(percent)
-        }, fileRequest => {
-          requestCreated(fileRequest)
-        })
+  if (e.dataTransfer) {
+    const files = e.dataTransfer.files
+    if (files.length > 0) {
+      e.preventDefault()
+      e.stopPropagation()
+      for (let i = 0; i < files.length; i++) {
+        const file = files.item(i)
+        if (file) {
+          upload(name, url, method, file, () => {
+            fileGot(file)
+          }, request => {
+            fileUploaded(request)
+          }, percent => {
+            progress(percent)
+          }, fileRequest => {
+            requestCreated(fileRequest)
+          })
+        }
       }
     }
   }
