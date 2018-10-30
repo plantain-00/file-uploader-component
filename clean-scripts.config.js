@@ -75,7 +75,8 @@ module.exports = {
     less: `stylelint ${lessFiles}`,
     export: `no-unused-export ${tsFiles} ${lessFiles} --exclude ${excludeTsFiles}`,
     commit: `commitlint --from=HEAD~1`,
-    markdown: `markdownlint README.md`
+    markdown: `markdownlint README.md`,
+    typeCoverage: 'lerna exec -- type-coverage -p src --at-least 91'
   },
   test: [
     'tsc -p spec',
