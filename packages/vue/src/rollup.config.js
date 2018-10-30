@@ -6,7 +6,7 @@ export default {
   input: 'packages/vue/dist/index.js',
   name: 'FileUploader',
   plugins: [
-    resolve(),
+    resolve({ browser: true }),
     uglify(),
     commonjs()
   ],
