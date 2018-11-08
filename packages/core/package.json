@@ -26,8 +26,5 @@
   ],
   "dependencies": {
     "tslib": "1"
-  },
-  "peerDependencies": {
-    "tslib": "1"
   }
 }
