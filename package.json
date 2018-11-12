@@ -28,6 +28,9 @@
   "bugs": {
     "url": "https://github.com/plantain-00/file-uploader-component/issues"
   },
+  "typeCoverage": {
+    "atLeast": 91
+  },
   "homepage": "https://github.com/plantain-00/file-uploader-component#readme",
   "devDependencies": {
     "@angular/compiler": "7.0.3",
