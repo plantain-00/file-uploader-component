@@ -4,13 +4,13 @@ import commonjs from 'rollup-plugin-commonjs'
 
 export default {
   input: 'packages/react/dist/index.js',
-  name: 'FileUploader',
   plugins: [
     resolve({ browser: true }),
     uglify(),
     commonjs()
   ],
   output: {
+    name: 'FileUploader',
     file: 'packages/react/dist/file-uploader-react-component.min.js',
     format: 'umd'
   },
