@@ -28,6 +28,6 @@
   "dependencies": {
     "file-uploader-component": "^7.4.1",
     "vue": "2",
-    "vue-class-component": "6"
+    "vue-class-component": "7"
   }
 }
