@@ -1,6 +1,6 @@
 {
   "name": "file-uploader-react-component",
-  "version": "7.4.1",
+  "version": "7.5.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "unpkg": "dist/file-uploader-react-component.min.js",
