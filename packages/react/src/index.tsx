@@ -20,64 +20,64 @@ export type Props = {
 /**
  * @public
  */
-export class FileUploader extends React.Component<Props, {}> {
-  private requests: common.UploadRequest[] = []
+export function FileUploader(props: Props) {
+  const [requests, setRequest] = React.useState<common.UploadRequest[]>([])
 
-  render() {
-    const locale = common.getLocale(this.props.locale)
-    const progress = this.requests.map((request, i) => (
-      <div className='file-uploader-progress' title={(request.file as File).name} key={i}>
-        <div style={{ width: request.percent + '%' }}>{request.percent}%</div>
-      </div>
-    ))
-    return (
-      <div onDrop={(e: React.DragEvent<HTMLElement> | DragEvent) => { this.onDrop(e as DragEvent) }}
-        onPaste={(e: React.ClipboardEvent<HTMLElement> | ClipboardEvent) => { this.onPaste(e as ClipboardEvent) }}>
-        {progress}
-        <p className='file-uploader-container'>
-          {locale.dragAndDrop}
-          <span>{locale.selectFile}</span>
-          {locale.pasteFromClipboard}
-          <input type='file'
-            multiple={this.props.multiple}
-            accept={this.props.accept}
-            onChange={(e: React.FormEvent<HTMLElement> | Event) => { this.onFileUploaded(e as Event) }} />
-        </p>
-      </div>
-    )
-  }
+  const locale = common.getLocale(props.locale)
 
-  private onDrop(e: DragEvent) {
-    common.onDrop(e, this.props.name, this.props.url, this.props.method, this.fileGotCallback, this.fileUploadedCallback, percent => {
-      this.setState({ requests: this.requests })
-    }, request => {
-      this.requests.push(request)
-    })
-  }
-  private onPaste(e: ClipboardEvent) {
-    common.onPaste(e, this.props.name, this.props.url, this.props.method, this.fileGotCallback, this.fileUploadedCallback, percent => {
-      this.setState({ requests: this.requests })
-    }, request => {
-      this.requests.push(request)
-    })
-  }
-  private onFileUploaded(e: Event) {
-    common.onFileUploaded(e, this.props.name, this.props.url, this.props.method, this.fileGotCallback, this.fileUploadedCallback, percent => {
-      this.setState({ requests: this.requests })
-    }, request => {
-      this.requests.push(request)
-    })
-  }
-  private fileGotCallback(file: Blob) {
-    if (this.props.fileGot) {
-      this.props.fileGot(file)
+  const fileGotCallback = (file: Blob) => {
+    if (props.fileGot) {
+      props.fileGot(file)
     }
   }
-  private fileUploadedCallback(request: XMLHttpRequest) {
-    if (this.props.fileUploaded) {
-      this.props.fileUploaded(request.response)
+  const fileUploadedCallback = (request: XMLHttpRequest) => {
+    if (props.fileUploaded) {
+      props.fileUploaded(request.response)
     }
-    common.removeRequest(this.requests, request)
-    this.setState({ requests: this.requests })
+    common.removeRequest(requests, request)
+    setRequest(requests)
   }
+
+  const onDrop = (e: DragEvent) => {
+    common.onDrop(e, props.name, props.url, props.method, fileGotCallback, fileUploadedCallback, percent => {
+      setRequest(requests)
+    }, request => {
+      requests.push(request)
+    })
+  }
+  const onPaste = (e: ClipboardEvent) => {
+    common.onPaste(e, props.name, props.url, props.method, fileGotCallback, fileUploadedCallback, percent => {
+      setRequest(requests)
+    }, request => {
+      requests.push(request)
+    })
+  }
+  const onFileUploaded = (e: Event) => {
+    common.onFileUploaded(e, props.name, props.url, props.method, fileGotCallback, fileUploadedCallback, percent => {
+      setRequest(requests)
+    }, request => {
+      requests.push(request)
+    })
+  }
+
+  const progress = requests.map((request, i) => (
+    <div className='file-uploader-progress' title={(request.file as File).name} key={i}>
+      <div style={{ width: request.percent + '%' }}>{request.percent}%</div>
+    </div>
+  ))
+  return (
+    <div onDrop={(e: React.DragEvent<HTMLElement> | DragEvent) => { onDrop(e as DragEvent) }}
+      onPaste={(e: React.ClipboardEvent<HTMLElement> | ClipboardEvent) => { onPaste(e as ClipboardEvent) }}>
+      {progress}
+      <p className='file-uploader-container'>
+        {locale.dragAndDrop}
+        <span>{locale.selectFile}</span>
+        {locale.pasteFromClipboard}
+        <input type='file'
+          multiple={props.multiple}
+          accept={props.accept}
+          onChange={(e: React.FormEvent<HTMLElement> | Event) => { onFileUploaded(e as Event) }} />
+      </p>
+    </div>
+  )
 }
