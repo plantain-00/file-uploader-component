@@ -15,7 +15,7 @@ export type Props = {
   method?: string;
   fileGot?: (file: File | Blob) => void;
   fileUploaded?: (response: any) => void;
-}
+} & React.Props<any>
 
 /**
  * @public
