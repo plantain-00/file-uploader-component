@@ -31,7 +31,7 @@
     "react-dom": "16"
   },
   "devDependencies": {
-    "@types/react": "16.8.15",
+    "@types/react": "16.8.17",
     "@types/react-dom": "16.8.4"
   }
 }
