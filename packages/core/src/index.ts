@@ -78,6 +78,9 @@ export function onDrop(e: DragEvent, name: string | undefined, url: string | und
  * @public
  */
 export function onPaste(e: ClipboardEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
+  if (!e.clipboardData) {
+    return
+  }
   const items = e.clipboardData.items
   if (items.length > 0) {
     e.preventDefault()

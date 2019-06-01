@@ -1,6 +1,6 @@
 {
   "name": "file-uploader-react-component",
-  "version": "7.5.0",
+  "version": "7.6.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "unpkg": "dist/file-uploader-react-component.min.js",
@@ -26,12 +26,12 @@
     "dist"
   ],
   "dependencies": {
-    "file-uploader-component": "^7.4.1",
+    "file-uploader-component": "^7.6.0",
     "react": "16",
     "react-dom": "16"
   },
   "devDependencies": {
-    "@types/react": "16.8.18",
+    "@types/react": "16.8.19",
     "@types/react-dom": "16.8.4"
   }
 }
