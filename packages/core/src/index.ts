@@ -133,7 +133,7 @@ export function onFileUploaded(e: Event, name: string | undefined, url: string |
 /**
  * @public
  */
-export type UploadRequest = {
+export interface UploadRequest {
   percent: number;
   file: File | Blob;
   request: XMLHttpRequest;
