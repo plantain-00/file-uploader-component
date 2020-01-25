@@ -25,7 +25,7 @@ const webpackAngularAotCommand = `webpack --config packages/angular/demo/aot/web
 
 const revStaticCommand = `rev-static`
 const cssCommand = [
-  `lessc packages/core/src/file-uploader.less -sm=on > packages/core/src/file-uploader.css`,
+  `lessc packages/core/src/file-uploader.less --math=strict > packages/core/src/file-uploader.css`,
   `postcss packages/core/src/file-uploader.css -o packages/core/dist/file-uploader.css`,
   `cleancss packages/core/dist/file-uploader.css -o packages/core/dist/file-uploader.min.css`,
   `cleancss packages/core/dist/file-uploader.min.css ./node_modules/github-fork-ribbon-css/gh-fork-ribbon.css -o packages/core/demo/index.bundle.css`
