@@ -11,7 +11,6 @@
 ## features
 
 + reactjs component
-+ angular component
 + vuejs component
 + drag file(s) and drop to the component
 + click to choose file(s)
@@ -53,33 +52,6 @@ or
 ```
 
 the online demo: <https://plantain-00.github.io/file-uploader-component/packages/react/demo>
-
-## angular component
-
-`npm i file-uploader-angular-component`
-
-```js
-import { FileUploaderModule } from "file-uploader-angular-component";
-
-@NgModule({
-    imports: [BrowserModule, FormsModule, FileUploaderModule],
-    declarations: [MainComponent],
-    bootstrap: [MainComponent],
-})
-class MainModule { }
-```
-
-```jsx
-<file-uploader (fileUploaded)="fileUploaded($event)"
-    (fileGot)="fileGot($event)"
-    accept="image/*"
-    multiple="true">
-</file-uploader>
-```
-
-the online demo: <https://plantain-00.github.io/file-uploader-component/packages/angular/demo/jit>
-
-the AOT online demo: <https://plantain-00.github.io/file-uploader-component/packages/angular/demo/aot>
 
 ## vuejs component
 

@@ -3,7 +3,7 @@
   "version": "7.6.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "description": "A reactjs, angular and vuejs component of file uploader.",
+  "description": "A reactjs and vuejs component of file uploader.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/plantain-00/file-uploader-component.git"
@@ -12,8 +12,7 @@
     "file",
     "upload",
     "vue",
-    "react",
-    "angular2"
+    "react"
   ],
   "author": "York Yao",
   "license": "MIT",
