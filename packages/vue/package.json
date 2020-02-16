@@ -1,7 +1,7 @@
 {
   "name": "file-uploader-vue-component",
-  "version": "7.6.0",
-  "main": "dist/index.js",
+  "version": "7.6.1",
+  "main": "dist/file-uploader-vue-component.min.js",
   "module": "dist/index.js",
   "unpkg": "dist/file-uploader-vue-component.min.js",
   "jsdelivr": "dist/file-uploader-vue-component.min.js",
@@ -25,7 +25,7 @@
     "dist"
   ],
   "dependencies": {
-    "file-uploader-component": "^7.6.0",
+    "file-uploader-component": "^7.6.1",
     "vue": "2",
     "vue-class-component": "7"
   }
