@@ -24,6 +24,6 @@
     "dist"
   ],
   "dependencies": {
-    "tslib": "1"
+    "tslib": "2"
   }
 }
