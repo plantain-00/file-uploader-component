@@ -21,12 +21,12 @@
     "url": "https://github.com/plantain-00/file-uploader-component/issues"
   },
   "homepage": "https://github.com/plantain-00/file-uploader-component#readme",
-  "files": [
-    "dist"
-  ],
   "dependencies": {
     "file-uploader-component": "^7.6.1",
     "vue": "2",
     "vue-class-component": "7"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
