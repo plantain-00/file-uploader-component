@@ -1,6 +1,6 @@
 {
   "name": "file-uploader-vue-component",
-  "version": "7.6.1",
+  "version": "8.0.0",
   "main": "dist/file-uploader-vue-component.min.js",
   "module": "dist/index.js",
   "unpkg": "dist/file-uploader-vue-component.min.js",
@@ -22,9 +22,8 @@
   },
   "homepage": "https://github.com/plantain-00/file-uploader-component#readme",
   "dependencies": {
-    "file-uploader-component": "^7.6.1",
-    "vue": "2",
-    "vue-class-component": "7"
+    "file-uploader-component": "^8.0.0",
+    "vue": "3"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

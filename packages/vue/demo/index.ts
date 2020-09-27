@@ -1,9 +1,31 @@
-import Vue from 'vue'
-import Component from 'vue-class-component'
+import { createApp, defineComponent } from 'vue'
 
-import '../dist/'
+import { FileUploader } from '../dist/'
 
-@Component({
+const App = defineComponent({
+  data: () => {
+    return {
+      locale: null,
+      name: 'test',
+      url: 'http://localhost:9997',
+      method: 'POST',
+    }
+  },
+  beforeCreate() {
+    if (navigator.language === 'zh-CN') {
+      import('../../core/dist/locales/' + navigator.language + '.js').then(module => {
+        this.locale = module.locale
+      })
+    }
+  },
+  methods: {
+    fileGot(file: File | Blob) {
+      console.log(file)
+    },
+    fileUploaded(response: any) {
+      console.log(response)
+    },
+  },
   template: `
     <div style="margin: 10px; width: 800px">
         <a href="https://github.com/plantain-00/file-uploader-component/tree/master/packages/vue/demo" target="_blank">the source code of the demo</a>
@@ -32,25 +54,8 @@ import '../dist/'
     </div>
     `
 })
-class App extends Vue {
-  locale = null
-  name = 'test'
-  url = 'http://localhost:9997'
-  method = 'POST'
 
-  beforeCreate() {
-    if (navigator.language === 'zh-CN') {
-      import('../../core/dist/locales/' + navigator.language + '.js').then(module => {
-        this.locale = module.locale
-      })
-    }
-  }
-  fileGot(file: File | Blob) {
-    console.log(file)
-  }
-  fileUploaded(response: any) {
-    console.log(response)
-  }
-}
 
-new App({ el: '#container' })
+const app = createApp(App)
+app.component('file-uploader', FileUploader)
+app.mount('#container')
