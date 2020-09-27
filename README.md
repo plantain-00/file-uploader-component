@@ -61,7 +61,8 @@ the online demo: <https://plantain-00.github.io/file-uploader-component/packages
 `npm i file-uploader-vue-component`
 
 ```js
-import "file-uploader-vue-component";
+import { FileUploader } from "file-uploader-vue-component";
+app.component('file-uploader', FileUploader)
 ```
 
 or
@@ -96,6 +97,15 @@ fileUploaded | (response: any) => void | the event that is triggered when a file
 fileGot | (file: File or Blob) => void | the event that is triggered when got the file object
 
 ## change logs
+
+```ts
+// v7 vue2
+import "file-uploader-vue-component";
+
+// v8 vue3
+import { FileUploader } from "file-uploader-vue-component";
+app.component('file-uploader', FileUploader)
+```
 
 ```bash
 # v6
