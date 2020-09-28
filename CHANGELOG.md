@@ -1,5 +1,9 @@
 # Change Log
 
+## [8.0.1](https://github.com/plantain-00/file-uploader-component/compare/v8.0.0...v8.0.1) (2020-09-28)
+  
+* fix: release script ([44fa951](https://github.com/plantain-00/file-uploader-component/commit/44fa95144c319c1e883d3cc0ae0ca96e7a415fc6))
+
 ## [8.0.0](https://github.com/plantain-00/file-uploader-component/compare/v7.6.1...v8.0.0) (2020-09-27)
   
 * feat: support vue3 ([e5a46fb](https://github.com/plantain-00/file-uploader-component/commit/e5a46fb8d10cf968b2127e1eea9570a32b9dec0c))
