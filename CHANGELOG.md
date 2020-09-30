@@ -1,5 +1,9 @@
 # Change Log
 
+## [8.0.3](https://github.com/plantain-00/file-uploader-component/compare/v8.0.2...v8.0.3) (2020-09-30)
+  
+* fix: warning ([b8740c3](https://github.com/plantain-00/file-uploader-component/commit/b8740c30608264cc43a16cf6e04b74bd78d1084b))
+
 ## [8.0.2](https://github.com/plantain-00/file-uploader-component/compare/v8.0.1...v8.0.2) (2020-09-29)
   
 * chore: update dependencies ([c267122](https://github.com/plantain-00/file-uploader-component/commit/c26712205557a7abccc8997cc1244164eb28be90))
