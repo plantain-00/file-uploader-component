@@ -32,7 +32,7 @@ const App = defineComponent({
         <h3>just get the file or blob object and print it at console</h3>
         <file-uploader @file-got="fileGot($event)"
             accept="image/*"
-            multiple="true"
+            :multiple="true"
             :locale="locale">
         </file-uploader>
         <h3>upload the file to server</h3>
@@ -45,7 +45,7 @@ const App = defineComponent({
         <file-uploader @file-uploaded="fileUploaded($event)"
             @file-got="fileGot($event)"
             accept="image/*"
-            multiple="true"
+            :multiple="true"
             :locale="locale"
             :name="name"
             :url="url"
