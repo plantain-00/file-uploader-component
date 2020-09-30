@@ -11,27 +11,12 @@ const fileUploadedEventName = 'file-uploaded'
 export const FileUploader = defineComponent({
   render: indexTemplateHtml,
   props: {
-    accept: {
-      type: String,
-      required: true,
-    },
-    multiple: {
-      type: Boolean,
-      required: true,
-    },
+    accept: String,
+    multiple: Boolean,
     locale: Object as PropType<common.Locale>,
-    name: {
-      type: String,
-      required: true,
-    },
-    url: {
-      type: String,
-      required: true,
-    },
-    method: {
-      type: String,
-      required: true,
-    },
+    name: String,
+    url: String,
+    method: String,
   },
   computed: {
     localeObject(): common.Locale {
