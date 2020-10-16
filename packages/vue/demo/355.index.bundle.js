@@ -1,0 +1,1 @@
+(self.webpackChunkfile_uploader_component=self.webpackChunkfile_uploader_component||[]).push([[355],{355:function(e,n,o){"use strict";o.r(n),o.d(n,{locale:function(){return l}});var l={dragAndDrop:"通过拖放、",selectFile:"选择",pasteFromClipboard:"、或者从剪切板粘贴来上传文件。"}}}]);
