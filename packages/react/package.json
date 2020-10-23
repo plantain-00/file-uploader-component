@@ -24,8 +24,8 @@
   "homepage": "https://github.com/plantain-00/file-uploader-component#readme",
   "dependencies": {
     "file-uploader-component": "^8.0.0",
-    "react": "16",
-    "react-dom": "16"
+    "react": "17",
+    "react-dom": "17"
   },
   "devDependencies": {
     "@types/react": "16.9.53",
