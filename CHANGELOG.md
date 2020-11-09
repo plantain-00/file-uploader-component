@@ -1,5 +1,10 @@
 # Change Log
 
+## [8.1.0](https://github.com/plantain-00/file-uploader-component/compare/v8.0.3...v8.1.0) (2020-11-09)
+  
+* chore: update dependencies ([096f093](https://github.com/plantain-00/file-uploader-component/commit/096f09375312b1901351fa2f0ed2a32827e69e92)) ([683bb4d](https://github.com/plantain-00/file-uploader-component/commit/683bb4ddd8d9355dd4d3488aafa2254d5f97c7aa)) ([de61332](https://github.com/plantain-00/file-uploader-component/commit/de61332b1a2aea7cd6bc0276d4a30c186e568fac)) ([c81195f](https://github.com/plantain-00/file-uploader-component/commit/c81195ff8a75ebe972a47573f38b6617256a4de4)) ([09157bc](https://github.com/plantain-00/file-uploader-component/commit/09157bcd625f72bd037ecbed10c76697f98f9356)) ([7a27742](https://github.com/plantain-00/file-uploader-component/commit/7a27742083d1fc90889a2a27238173303ca27935))
+* docs: remove unnused vue-class-component ([0f2006b](https://github.com/plantain-00/file-uploader-component/commit/0f2006b546f09623350dc16505ee1a9c26cec441))
+
 ## [8.0.3](https://github.com/plantain-00/file-uploader-component/compare/v8.0.2...v8.0.3) (2020-09-30)
   
 * fix: warning ([b8740c3](https://github.com/plantain-00/file-uploader-component/commit/b8740c30608264cc43a16cf6e04b74bd78d1084b))

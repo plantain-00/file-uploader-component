@@ -1,6 +1,6 @@
 {
   "name": "file-uploader-vue-component",
-  "version": "8.0.3",
+  "version": "8.1.0",
   "main": "dist/file-uploader-vue-component.min.js",
   "module": "dist/index.js",
   "unpkg": "dist/file-uploader-vue-component.min.js",
