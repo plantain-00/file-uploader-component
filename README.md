@@ -2,7 +2,6 @@
 
 [![Dependency Status](https://david-dm.org/plantain-00/file-uploader-component.svg)](https://david-dm.org/plantain-00/file-uploader-component)
 [![devDependency Status](https://david-dm.org/plantain-00/file-uploader-component/dev-status.svg)](https://david-dm.org/plantain-00/file-uploader-component#info=devDependencies)
-[![Build Status: Linux](https://travis-ci.org/plantain-00/file-uploader-component.svg?branch=master)](https://travis-ci.org/plantain-00/file-uploader-component)
 [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/github/plantain-00/file-uploader-component?branch=master&svg=true)](https://ci.appveyor.com/project/plantain-00/file-uploader-component/branch/master)
 ![Github CI](https://github.com/plantain-00/file-uploader-component/workflows/Github%20CI/badge.svg)
 [![npm version](https://badge.fury.io/js/file-uploader-component.svg)](https://badge.fury.io/js/file-uploader-component)
