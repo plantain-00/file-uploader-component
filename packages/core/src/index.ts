@@ -19,7 +19,16 @@ export function getLocale(locale: null | undefined | Locale): Locale {
   return locale || defaultLocale
 }
 
-function upload(name: string | undefined, url: string | undefined, method: string | undefined, file: File | Blob, fileGot: () => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
+function upload(
+  name: string | undefined,
+  url: string | undefined,
+  method: string | undefined,
+  file: File | Blob,
+  fileGot: () => void,
+  fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void,
+  requestCreated: (uploadRequest: UploadRequest) => void,
+  beforeRequest?: (request: XMLHttpRequest, formData: FormData) => void,
+) {
   fileGot()
 
   if (name && url && method) {
@@ -42,6 +51,9 @@ function upload(name: string | undefined, url: string | undefined, method: strin
     request.open(method, url)
     const formData = new FormData()
     formData.append(name, file)
+    if (beforeRequest) {
+      beforeRequest(request, formData)
+    }
     request.send(formData)
     requestCreated(uploadRequest)
   }
@@ -50,7 +62,17 @@ function upload(name: string | undefined, url: string | undefined, method: strin
 /**
  * @public
  */
-export function onDrop(e: DragEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
+export function onDrop(
+  e: DragEvent,
+  name: string | undefined,
+  url: string | undefined,
+  method: string | undefined,
+  fileGot: (file: File | Blob) => void,
+  fileUploaded: (request: XMLHttpRequest) => void,
+  progress: (percent: number) => void,
+  requestCreated: (uploadRequest: UploadRequest) => void,
+  beforeRequest?: (request: XMLHttpRequest, formData: FormData) => void,
+): void {
   if (e.dataTransfer) {
     const files = e.dataTransfer.files
     if (files.length > 0) {
@@ -67,7 +89,7 @@ export function onDrop(e: DragEvent, name: string | undefined, url: string | und
             progress(percent)
           }, fileRequest => {
             requestCreated(fileRequest)
-          })
+          }, beforeRequest)
         }
       }
     }
@@ -77,7 +99,17 @@ export function onDrop(e: DragEvent, name: string | undefined, url: string | und
 /**
  * @public
  */
-export function onPaste(e: ClipboardEvent, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
+export function onPaste(
+  e: ClipboardEvent,
+  name: string | undefined,
+  url: string | undefined,
+  method: string | undefined,
+  fileGot: (file: File | Blob) => void,
+  fileUploaded: (request: XMLHttpRequest) => void,
+  progress: (percent: number) => void,
+  requestCreated: (uploadRequest: UploadRequest) => void,
+  beforeRequest?: (request: XMLHttpRequest, formData: FormData) => void,
+): void {
   if (!e.clipboardData) {
     return
   }
@@ -97,7 +129,7 @@ export function onPaste(e: ClipboardEvent, name: string | undefined, url: string
             progress(percent)
           }, fileRequest => {
             requestCreated(fileRequest)
-          })
+          }, beforeRequest)
         }
       }
     }
@@ -107,7 +139,17 @@ export function onPaste(e: ClipboardEvent, name: string | undefined, url: string
 /**
  * @public
  */
-export function onFileUploaded(e: Event, name: string | undefined, url: string | undefined, method: string | undefined, fileGot: (file: File | Blob) => void, fileUploaded: (request: XMLHttpRequest) => void, progress: (percent: number) => void, requestCreated: (uploadRequest: UploadRequest) => void) {
+export function onFileUploaded(
+  e: Event,
+  name: string | undefined,
+  url: string | undefined,
+  method: string | undefined,
+  fileGot: (file: File | Blob) => void,
+  fileUploaded: (request: XMLHttpRequest) => void,
+  progress: (percent: number) => void,
+  requestCreated: (uploadRequest: UploadRequest) => void,
+  beforeRequest?: (request: XMLHttpRequest, formData: FormData) => void,
+): void {
   const files = (e.currentTarget as HTMLInputElement).files
   if (files) {
     e.preventDefault()
@@ -123,7 +165,7 @@ export function onFileUploaded(e: Event, name: string | undefined, url: string |
             progress(percent)
           }, fileRequest => {
             requestCreated(fileRequest)
-          })
+          }, beforeRequest)
         }
       }
     }
@@ -142,7 +184,7 @@ export interface UploadRequest {
 /**
  * @public
  */
-export function removeRequest(requests: UploadRequest[], request: XMLHttpRequest) {
+export function removeRequest(requests: UploadRequest[], request: XMLHttpRequest): void {
   for (let i = 0; i < requests.length; i++) {
     if (requests[i].request === request) {
       requests.splice(i, 1)

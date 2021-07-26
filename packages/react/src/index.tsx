@@ -15,6 +15,7 @@ export type Props = {
   method?: string;
   fileGot?: (file: File | Blob) => void;
   fileUploaded?: (response: any) => void;
+  beforeRequest?: (request: XMLHttpRequest, formData: FormData) => void
 } & React.Props<any>
 
 /**
@@ -43,21 +44,21 @@ export function FileUploader(props: Props) {
       setRequest(requests)
     }, request => {
       requests.push(request)
-    })
+    }, props.beforeRequest)
   }
   const onPaste = (e: ClipboardEvent) => {
     common.onPaste(e, props.name, props.url, props.method, fileGotCallback, fileUploadedCallback, percent => {
       setRequest(requests)
     }, request => {
       requests.push(request)
-    })
+    }, props.beforeRequest)
   }
   const onFileUploaded = (e: Event) => {
     common.onFileUploaded(e, props.name, props.url, props.method, fileGotCallback, fileUploadedCallback, percent => {
       setRequest(requests)
     }, request => {
       requests.push(request)
-    })
+    }, props.beforeRequest)
   }
 
   const progress = requests.map((request, i) => (
