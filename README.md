@@ -93,6 +93,7 @@ url | string? | the upload API url
 method | string? | the upload API method
 fileUploaded | (response: any) => void | the event that is triggered when a file is uploaded
 fileGot | (file: File or Blob) => void | the event that is triggered when got the file object
+beforeRequest | (request: XMLHttpRequest, formData: FormData) => void | the event that is triggered before sending request
 
 ## change logs
 

@@ -4,6 +4,7 @@ export * from 'file-uploader-component'
 import { indexTemplateHtml } from './variables'
 
 const fileUploadedEventName = 'file-uploaded'
+const beforeFileUploadEventName = 'before-upload'
 
 /**
  * @public
@@ -44,6 +45,8 @@ export const FileUploader = defineComponent({
         // nothing to do
       }, request => {
         this.requests.push(request)
+      }, (r, f) => {
+        this.$emit(beforeFileUploadEventName, r, f)
       })
     },
     onPaste(e: ClipboardEvent) {
@@ -56,6 +59,8 @@ export const FileUploader = defineComponent({
         // nothing to do
       }, request => {
         this.requests.push(request)
+      }, (r, f) => {
+        this.$emit(beforeFileUploadEventName, r, f)
       })
     },
     onFileUploaded(e: Event) {
@@ -68,6 +73,8 @@ export const FileUploader = defineComponent({
         // nothing to do
       }, request => {
         this.requests.push(request)
+      }, (r, f) => {
+        this.$emit(beforeFileUploadEventName, r, f)
       })
     },
   }
