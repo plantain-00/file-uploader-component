@@ -117,7 +117,7 @@ export function onPaste(
   if (items.length > 0) {
     e.preventDefault()
     for (let i = 0; i < items.length; i++) {
-      const item = items[i]
+      const item = items[i]!
       if (item.kind === 'file') {
         const file = item.getAsFile()
         if (file) {
@@ -186,7 +186,7 @@ export interface UploadRequest {
  */
 export function removeRequest(requests: UploadRequest[], request: XMLHttpRequest): void {
   for (let i = 0; i < requests.length; i++) {
-    if (requests[i].request === request) {
+    if (requests[i]!.request === request) {
       requests.splice(i, 1)
       break
     }
